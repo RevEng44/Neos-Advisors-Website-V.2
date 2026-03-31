@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Neos Advisors | The Architectural Authority</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-surface-variant": "#43474d",
+            "secondary-container": "#ffdb8f",
+            "tertiary-container": "#182334",
+            "surface": "#faf9f7",
+            "inverse-primary": "#b2c8e5",
+            "inverse-on-surface": "#f1f1ef",
+            "primary-container": "#0c243a",
+            "surface-container-lowest": "#ffffff",
+            "secondary-fixed": "#ffdf9b",
+            "secondary-fixed-dim": "#e4c279",
+            "on-primary": "#ffffff",
+            "primary-fixed": "#d0e4ff",
+            "inverse-surface": "#2f3130",
+            "surface-container-high": "#e9e8e6",
+            "outline-variant": "#c4c6cd",
+            "on-tertiary-container": "#7f8a9f",
+            "tertiary": "#030d1d",
+            "on-secondary-fixed-variant": "#5a4303",
+            "surface-container": "#efeeec",
+            "on-tertiary-fixed": "#111c2c",
+            "on-tertiary": "#ffffff",
+            "on-tertiary-fixed-variant": "#3c475a",
+            "error": "#ba1a1a",
+            "surface-container-low": "#f4f3f1",
+            "on-error-container": "#93000a",
+            "on-secondary-fixed": "#251a00",
+            "secondary": "#745b1c",
+            "primary-fixed-dim": "#b2c8e5",
+            "surface-tint": "#4b6079",
+            "outline": "#74777d",
+            "on-primary-fixed": "#041d33",
+            "error-container": "#ffdad6",
+            "surface-variant": "#e3e2e0",
+            "on-background": "#1a1c1b",
+            "on-primary-fixed-variant": "#334860",
+            "on-primary-container": "#768ca6",
+            "on-secondary": "#ffffff",
+            "background": "#faf9f7",
+            "surface-bright": "#faf9f7",
+            "on-surface": "#1a1c1b",
+            "tertiary-fixed-dim": "#bcc7dd",
+            "surface-dim": "#dadad8",
+            "tertiary-fixed": "#d8e3fa",
+            "on-secondary-container": "#795f20",
+            "primary": "#000d1d",
+            "surface-container-highest": "#e3e2e0",
+            "on-error": "#ffffff"
+          },
+          fontFamily: {
+            "headline": ["Manrope"],
+            "body": ["Inter"],
+            "label": ["Manrope"]
+          },
+          borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+        },
+      },
+    }
+</script>
+<style>
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .hero-gradient {
+        background: linear-gradient(135deg, #000D1D 0%, #0C243A 100%);
+    }
+    .glass-nav {
+        background: rgba(250, 249, 247, 0.8);
+        backdrop-filter: blur(20px);
+    }
+    .text-gradient {
+        background: linear-gradient(to right, #ffffff, #768ca6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Trusted By scrolling animation */
+    @keyframes scroll-left {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+    }
+    .scroll-track {
+        animation: scroll-left 40s linear infinite;
+    }
+    .scroll-track:hover {
+        animation-play-state: paused;
+    }
+</style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+
+<!-- ==================== TOP NAV BAR ==================== -->
+<nav class="fixed top-0 w-full z-50 glass-nav shadow-[0_40px_60px_rgba(26,28,27,0.04)]">
+    <div class="flex justify-between items-center w-full px-8 py-6 max-w-7xl mx-auto">
+        <a href="#hero"><img src="images/logo-header.jpg" alt="Neos Advisors" class="h-10 w-auto"/></a>
+        <div class="hidden md:flex items-center gap-8">
+            <a class="text-primary-container opacity-80 font-headline font-bold tracking-tight hover:text-[#745B1C] transition-colors duration-300" href="#about">About</a>
+            <a class="text-primary-container opacity-80 font-headline font-bold tracking-tight hover:text-[#745B1C] transition-colors duration-300" href="#services">Services</a>
+            <a class="text-primary-container opacity-80 font-headline font-bold tracking-tight hover:text-[#745B1C] transition-colors duration-300" href="#results">Results</a>
+            <a class="text-primary-container opacity-80 font-headline font-bold tracking-tight hover:text-[#745B1C] transition-colors duration-300" href="#team">Team</a>
+            <a class="text-primary-container opacity-80 font-headline font-bold tracking-tight hover:text-[#745B1C] transition-colors duration-300" href="#careers">Careers</a>
+        </div>
+        <a href="#careers" class="bg-secondary text-on-secondary px-6 py-2.5 rounded-lg font-headline font-bold text-sm tracking-wide hover:opacity-90 transition-opacity">
+            Contact Us
+        </a>
+    </div>
+</nav>
+
+<!-- ==================== HERO SECTION ==================== -->
+<section id="hero" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+    <div class="absolute inset-0 z-0">
+        <img class="w-full h-full object-cover" alt="expansive aerial view of the canadian boreal forest and rocky mountains under a crisp blue sky with misty valleys" src="images/hero-image.png"/>
+        <div class="absolute inset-0 hero-gradient opacity-85"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-8 w-full">
+        <div class="max-w-3xl">
+            <span class="inline-block text-secondary font-headline font-extrabold tracking-[0.2em] text-xs uppercase mb-6">Strategic Construction Advisory</span>
+            <h1 class="text-white font-headline text-5xl md:text-7xl font-extrabold tracking-tighter leading-[1.05] mb-4">
+                Partner Early.
+            </h1>
+            <h1 class="font-headline text-5xl md:text-7xl font-extrabold tracking-tighter leading-[1.05] mb-8 italic">
+                <span class="text-gradient">Build Better.</span>
+            </h1>
+            <p class="text-on-primary-container text-lg md:text-xl font-body leading-relaxed mb-10 max-w-2xl">
+                Empowering construction businesses and Indigenous Nations to achieve more through strategic planning and efficient execution.
+            </p>
+            <div class="flex flex-wrap gap-4">
+                <a href="mailto:info@neosadvisors.ca" class="bg-secondary text-on-secondary px-8 py-4 rounded-lg font-headline font-bold tracking-wide hover:opacity-90 transition-opacity shadow-lg">
+                    Start a Conversation
+                </a>
+                <a href="#services" class="border border-outline-variant border-opacity-20 text-white px-8 py-4 rounded-lg font-headline font-bold tracking-wide hover:bg-white/5 transition-all">
+                    Explore Services
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== ABOUT SECTION ==================== -->
+<section id="about" class="py-28 bg-surface">
+    <div class="max-w-7xl mx-auto px-8">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-16 items-start">
+            <div class="md:col-span-5">
+                <div class="relative">
+                    <img class="w-full h-[500px] object-cover grayscale brightness-90 rounded-lg" alt="close up of an engineer's weathered blueprints on a wooden table with a hard hat in soft focus background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6BnF0xUuqiti9Qb45tPrtsvIUzvN4F3arF5NlQt0sN3TcOfxfwOG2-q80-O3YNw5H4PKzuoEHzPrYHBOZddpa0qYthEyNoO2g9TXwPaQM9OrhwDN6DE9AmBbUsKLM4Vl12fvCxaaFymk5RsKOFpasOEQUJp9o5p7VbuUz7Z2k9eR_JaMCIPGi9IXgMqCcPmoES-yufjqBfDhX0VWhDh9s68Y5KPSRL31vGShH54VLsWqRlDUiqqIafOCSGAbSSVEtCWj_d3ENK68H"/>
+                    <div class="absolute -bottom-8 -right-8 w-48 h-48 bg-primary-container p-8 flex flex-col justify-center">
+                        <span class="text-secondary font-headline font-extrabold text-3xl">P.Eng.</span>
+                        <span class="text-white text-xs uppercase tracking-widest mt-2">Certified Leadership</span>
+                    </div>
+                </div>
+            </div>
+            <div class="md:col-span-7 flex flex-col justify-center h-full pt-10">
+                <span class="text-secondary font-headline font-bold tracking-[0.1em] text-sm uppercase mb-4">The Neos Approach</span>
+                <h2 class="text-primary font-headline text-4xl md:text-5xl font-extrabold tracking-tight mb-8">Built on Field Credibility</h2>
+                <p class="text-on-surface-variant text-lg leading-relaxed mb-6">
+                    Led by professional engineers with direct project experience on major Canadian pipelines. We provide strategic advisory from a field-first perspective, not just a boardroom.
+                </p>
+                <p class="text-on-surface-variant text-lg leading-relaxed mb-10">
+                    Our specialized focus bridges the gap between technical execution and community partnership. We emphasize Indigenous-led partnership capability and full-project lifecycle support.
+                </p>
+                <div class="flex gap-12">
+                    <div>
+                        <span class="block text-primary font-headline font-extrabold text-2xl">20+</span>
+                        <span class="text-on-surface-variant text-sm">Years Experience</span>
+                    </div>
+                    <div>
+                        <span class="block text-primary font-headline font-extrabold text-2xl">$1B+</span>
+                        <span class="text-on-surface-variant text-sm">Managed Projects</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== IMPACT BAR ==================== -->
+<div class="w-full bg-primary-container py-12">
+    <div class="max-w-7xl mx-auto px-8 flex flex-wrap justify-between gap-8 items-center">
+        <div class="flex flex-col">
+            <span class="text-white font-headline text-3xl font-extrabold">$1B+</span>
+            <span class="text-on-primary-container text-xs font-headline font-bold uppercase tracking-widest">Project Value Managed</span>
+        </div>
+        <div class="flex flex-col">
+            <span class="text-white font-headline text-3xl font-extrabold">100%</span>
+            <span class="text-on-primary-container text-xs font-headline font-bold uppercase tracking-widest">Field-Credible Lead</span>
+        </div>
+        <div class="flex flex-col">
+            <span class="text-white font-headline text-3xl font-extrabold">12+</span>
+            <span class="text-on-primary-container text-xs font-headline font-bold uppercase tracking-widest">Indigenous Nations Engaged</span>
+        </div>
+        <div class="flex flex-col">
+            <span class="text-white font-headline text-3xl font-extrabold">24/7</span>
+            <span class="text-on-primary-container text-xs font-headline font-bold uppercase tracking-widest">On-Site Support Readiness</span>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== TRUSTED BY (Scrolling Logos) ==================== -->
+<section class="py-16 bg-primary-container border-y border-white/5 overflow-hidden relative">
+    <!-- Gradient Masks -->
+    <div class="absolute top-0 left-0 w-20 md:w-48 h-full bg-gradient-to-r from-primary-container via-primary-container/95 to-transparent z-20 pointer-events-none"></div>
+    <div class="absolute top-0 right-0 w-20 md:w-48 h-full bg-gradient-to-l from-primary-container via-primary-container/95 to-transparent z-20 pointer-events-none"></div>
+
+    <div class="text-center mb-10 relative z-10">
+        <span class="text-white/30 tracking-[0.3em] text-xs font-headline font-bold uppercase">Trusted By</span>
+    </div>
+
+    <div class="flex relative z-10 overflow-hidden">
+        <div class="scroll-track flex gap-12 md:gap-24 items-center whitespace-nowrap px-4">
+            <!-- Set 1 -->
+            <div class="flex items-center justify-center p-4 md:p-6 rounded-xl h-24 w-48 md:h-32 md:w-64 bg-white hover:bg-white/90 transition-all duration-300 shrink-0">
+                <img src="images/duzcho.png" alt="Duz Cho Logo" class="max-h-full max-w-full object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"/>
+            </div>
+            <div class="flex items-center justify-center p-4 md:p-6 rounded-xl h-24 w-48 md:h-32 md:w-64 bg-white hover:bg-white/90 transition-all duration-300 shrink-0">
+                <img src="images/spirit-valley.png" alt="Spirit Valley Development LP Logo" class="max-h-full max-w-full object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"/>
+            </div>
+            <div class="flex items-center justify-center p-4 md:p-6 rounded-xl h-24 w-48 md:h-32 md:w-64 bg-white hover:bg-white/90 transition-all duration-300 shrink-0">
+                <img src="images/simpcw.png" alt="Simpcw Resources Group Logo" class="max-h-full max-w-full object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"/>
+            </div>
+            <div class="flex items-center justify-center p-4 md:p-6 rounded-xl h-24 w-48 md:h-32 md:w-64 bg-white hover:bg-white/90 transition-all duration-300 shrink-0">
+                <img src="images/gnb.png" alt="Great Northern Bridgeworks Logo" class="max-h-full max-w-full object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"/>
+            </div>
+            <div class="flex items-center justify-center p-4 md:p-6 rounded-xl h-24 w-48 md:h-32 md:w-64 bg-white hover:bg-white/90 transition-all duration-300 shrink-0">
+                <img src="images/secwepemc.png" alt="Secwepemcul'ecw Restoration and Stewardship Society Logo" class="max-h-full max-w-full object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"/>
+            </div>
+            <!-- Set 2 (duplicate for seamless loop) -->
+            <div class="flex items-center justify-center p-4 md:p-6 rounded-xl h-24 w-48 md:h-32 md:w-64 bg-white hover:bg-white/90 transition-all duration-300 shrink-0">
+                <img src="images/duzcho.png" alt="Duz Cho Logo" class="max-h-full max-w-full object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"/>
+            </div>
+            <div class="flex items-center justify-center p-4 md:p-6 rounded-xl h-24 w-48 md:h-32 md:w-64 bg-white hover:bg-white/90 transition-all duration-300 shrink-0">
+                <img src="images/spirit-valley.png" alt="Spirit Valley Development LP Logo" class="max-h-full max-w-full object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"/>
+            </div>
+            <div class="flex items-center justify-center p-4 md:p-6 rounded-xl h-24 w-48 md:h-32 md:w-64 bg-white hover:bg-white/90 transition-all duration-300 shrink-0">
+                <img src="images/simpcw.png" alt="Simpcw Resources Group Logo" class="max-h-full max-w-full object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"/>
+            </div>
+            <div class="flex items-center justify-center p-4 md:p-6 rounded-xl h-24 w-48 md:h-32 md:w-64 bg-white hover:bg-white/90 transition-all duration-300 shrink-0">
+                <img src="images/gnb.png" alt="Great Northern Bridgeworks Logo" class="max-h-full max-w-full object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"/>
+            </div>
+            <div class="flex items-center justify-center p-4 md:p-6 rounded-xl h-24 w-48 md:h-32 md:w-64 bg-white hover:bg-white/90 transition-all duration-300 shrink-0">
+                <img src="images/secwepemc.png" alt="Secwepemcul'ecw Restoration and Stewardship Society Logo" class="max-h-full max-w-full object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"/>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== SERVICES / CORE COMPETENCIES ==================== -->
+<section id="services" class="py-28 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto px-8">
+        <div class="text-center mb-20">
+            <span class="text-secondary font-headline font-bold tracking-[0.1em] text-sm uppercase mb-4 block">Core Competencies</span>
+            <h2 class="text-primary font-headline text-4xl md:text-5xl font-extrabold tracking-tight">Technical &amp; Strategic Divisions</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+
+            <!-- Division 1: A&CP -->
+            <div class="group bg-surface-container-lowest p-12 relative overflow-hidden transition-all duration-500 hover:bg-white hover:translate-y-[-4px]">
+                <div class="relative z-10">
+                    <span class="material-symbols-outlined text-secondary text-5xl mb-8">architecture</span>
+                    <h3 class="text-primary font-headline text-2xl font-bold mb-6">Advisement &amp; Capacity Planning (A&amp;CP)</h3>
+                    <p class="text-on-surface-variant leading-relaxed mb-8">
+                        Strategic construction advisory, project controls, and resource planning specifically tailored for linear infrastructure and large-scale industrial builds.
+                    </p>
+                    <ul class="space-y-4 text-sm text-on-surface mb-8">
+                        <li class="flex items-center gap-3">
+                            <span class="w-1.5 h-1.5 bg-secondary rounded-full"></span> Project Lifecycle Analysis
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="w-1.5 h-1.5 bg-secondary rounded-full"></span> Risk Mitigation Strategies
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="w-1.5 h-1.5 bg-secondary rounded-full"></span> Resource Scheduling &amp; Optimization
+                        </li>
+                    </ul>
+                </div>
+                <div class="absolute bottom-0 left-0 h-1 bg-secondary w-0 group-hover:w-full transition-all duration-700"></div>
+            </div>
+
+            <!-- Division 2: IE&BD -->
+            <div class="group bg-surface-container-lowest p-12 relative overflow-hidden transition-all duration-500 hover:bg-white hover:translate-y-[-4px]">
+                <div class="relative z-10">
+                    <span class="material-symbols-outlined text-secondary text-5xl mb-8">handshake</span>
+                    <h3 class="text-primary font-headline text-2xl font-bold mb-6">Indigenous Engagement &amp; Business Development (IE&amp;BD)</h3>
+                    <p class="text-on-surface-variant leading-relaxed mb-8">
+                        Benefit agreement strategy, project participation, and lasting partnership development for Indigenous Nations and industry stakeholders.
+                    </p>
+                    <ul class="space-y-4 text-sm text-on-surface mb-8">
+                        <li class="flex items-center gap-3">
+                            <span class="w-1.5 h-1.5 bg-secondary rounded-full"></span> Meaningful Consultation Support
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="w-1.5 h-1.5 bg-secondary rounded-full"></span> Business Capacity Building
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="w-1.5 h-1.5 bg-secondary rounded-full"></span> Shared Value Agreement Logic
+                        </li>
+                    </ul>
+                </div>
+                <div class="absolute bottom-0 left-0 h-1 bg-secondary w-0 group-hover:w-full transition-all duration-700"></div>
+            </div>
+
+            <!-- Division 3: Website & Branding Development (NEW) -->
+            <div class="group bg-surface-container-lowest p-12 relative overflow-hidden transition-all duration-500 hover:bg-white hover:translate-y-[-4px]">
+                <div class="relative z-10">
+                    <span class="material-symbols-outlined text-secondary text-5xl mb-8">brush</span>
+                    <h3 class="text-primary font-headline text-2xl font-bold mb-6">Website &amp; Branding Development</h3>
+                    <p class="text-on-surface-variant leading-relaxed mb-8">
+                        Establishing credibility starts with how you present yourself. We help construction firms and Indigenous enterprises build professional identities that command respect in the marketplace and win confidence from partners, clients, and stakeholders.
+                    </p>
+                    <ul class="space-y-4 text-sm text-on-surface mb-8">
+                        <li class="flex items-center gap-3">
+                            <span class="w-1.5 h-1.5 bg-secondary rounded-full"></span> Professional Website Design &amp; Development
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="w-1.5 h-1.5 bg-secondary rounded-full"></span> Logo &amp; Visual Identity Creation
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="w-1.5 h-1.5 bg-secondary rounded-full"></span> Brochures, Company Profiles &amp; Presentation Materials
+                        </li>
+                    </ul>
+                </div>
+                <div class="absolute bottom-0 left-0 h-1 bg-secondary w-0 group-hover:w-full transition-all duration-700"></div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ==================== WHY NEOS ==================== -->
+<section class="py-28 bg-surface">
+    <div class="max-w-7xl mx-auto px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+            <div>
+                <h3 class="text-primary font-headline text-xl font-bold mb-4">Field-First Expertise</h3>
+                <p class="text-on-surface-variant text-sm leading-relaxed">
+                    We don't just consult from afar. Our advisors come from the field, ensuring every strategy is executable and practical under real-world project conditions.
+                </p>
+            </div>
+            <div>
+                <h3 class="text-primary font-headline text-xl font-bold mb-4">Indigenous Partnership Focus</h3>
+                <p class="text-on-surface-variant text-sm leading-relaxed">
+                    Expertise in navigating the complex regulatory and relationship-driven landscape of Indigenous engagement in Western Canada.
+                </p>
+            </div>
+            <div>
+                <h3 class="text-primary font-headline text-xl font-bold mb-4">Senior Leadership P.Eng.</h3>
+                <p class="text-on-surface-variant text-sm leading-relaxed">
+                    All advisement is led or reviewed by our Professional Engineers, maintaining the highest standards of technical integrity and ethical duty.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== FEATURED RESULTS ==================== -->
+<section id="results" class="py-28 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto px-8">
+        <div class="mb-16">
+            <span class="text-secondary font-headline font-bold tracking-[0.1em] text-sm uppercase block mb-4">Featured Results</span>
+            <h2 class="text-primary font-headline text-4xl md:text-5xl font-extrabold tracking-tight">Delivering Measurable Impact</h2>
+        </div>
+
+        <div class="relative rounded-2xl bg-primary-container overflow-hidden shadow-2xl">
+            <div class="grid lg:grid-cols-2">
+                <div class="relative h-[250px] md:h-[400px] lg:h-auto">
+                    <img src="images/trans-mountain.png" alt="Construction Site - Pipeline" class="absolute inset-0 w-full h-full object-cover"/>
+                    <div class="absolute inset-0 bg-primary-container/20"></div>
+                </div>
+
+                <div class="relative p-8 md:p-16 flex flex-col justify-center">
+                    <!-- Simpcw Logo -->
+                    <div class="absolute top-6 right-6 md:top-10 md:right-10 w-20 md:w-32 opacity-50 hover:opacity-100 transition-opacity duration-500">
+                        <img src="images/simpcw.png" alt="Simpcw Resources Group" class="w-full h-auto object-contain filter brightness-0 invert"/>
+                    </div>
+
+                    <div class="text-secondary tracking-widest text-xs font-headline font-bold uppercase mb-4 mt-8 md:mt-0">Simpcw Resource Group &times; TMEP</div>
+                    <h3 class="text-white font-headline text-2xl md:text-4xl font-extrabold mb-6 md:mb-8">Trans Mountain Expansion Project</h3>
+
+                    <div class="flex flex-wrap gap-8 md:gap-12 mb-8 md:mb-10 border-b border-white/10 pb-8 md:pb-10">
+                        <div>
+                            <div class="text-secondary font-headline text-3xl md:text-5xl font-extrabold mb-1">100&times;</div>
+                            <div class="text-white/60 text-xs md:text-sm">Revenue Growth</div>
+                        </div>
+                        <div>
+                            <div class="text-secondary font-headline text-3xl md:text-5xl font-extrabold mb-1">98%</div>
+                            <div class="text-white/60 text-xs md:text-sm">Tender Success</div>
+                        </div>
+                        <div>
+                            <div class="text-secondary font-headline text-3xl md:text-5xl font-extrabold mb-1">50+</div>
+                            <div class="text-white/60 text-xs md:text-sm">Tenders Supported</div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6 text-white/80 text-sm md:text-base">
+                        <p><strong class="text-white">The Context:</strong> Simpcw Resource Group sought to maximize economic participation on the Trans Mountain Expansion Project.</p>
+                        <p><strong class="text-white">What Neos Did:</strong> We provided strategic commercial advisory, supported 50+ tenders, and implemented operational management systems to scale rapidly while maintaining quality delivery.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== TEAM SECTION ==================== -->
+<section id="team" class="py-28 bg-surface">
+    <div class="max-w-7xl mx-auto px-8">
+        <div class="text-center mb-20">
+            <span class="text-secondary font-headline font-bold tracking-[0.1em] text-sm uppercase mb-4 block">Executive Leadership</span>
+            <h2 class="text-primary font-headline text-4xl md:text-5xl font-extrabold tracking-tight">Technical Authority</h2>
+        </div>
+
+        <!-- Executive Leadership Grid (3 columns) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+
+            <!-- Stavros Salmas - CEO -->
+            <div class="bg-surface-container-lowest p-10 text-center shadow-[0_40px_60px_rgba(26,28,27,0.04)] transition-all duration-500 hover:translate-y-[-4px]">
+                <img src="images/stavros-salmas.jpg" alt="Stavros Salmas" class="w-24 h-24 mx-auto rounded-full object-cover mb-6 grayscale hover:grayscale-0 transition-all duration-500"/>
+                <h4 class="text-primary font-headline text-2xl font-bold mb-1">Stavros Salmas, P.Eng.</h4>
+                <span class="text-secondary font-headline font-bold text-xs uppercase tracking-widest mb-6 block">CEO</span>
+                <p class="text-on-surface-variant text-sm leading-relaxed">
+                    Stavros leads Neos Advisors as CEO, setting the strategic vision, direction, and leads business growth for the firm. He brings extensive industry expertise to help Indigenous Nations and growing businesses across Western Canada achieve sustainable success in the construction sector.
+                </p>
+            </div>
+
+            <!-- Anthony Del Mastro - COO -->
+            <div class="bg-surface-container-lowest p-10 text-center shadow-[0_40px_60px_rgba(26,28,27,0.04)] transition-all duration-500 hover:translate-y-[-4px]">
+                <img src="images/anthony-delmastro.jpg" alt="Anthony Del Mastro" class="w-24 h-24 mx-auto rounded-full object-cover mb-6 grayscale hover:grayscale-0 transition-all duration-500"/>
+                <h4 class="text-primary font-headline text-2xl font-bold mb-1">Anthony Del Mastro, P.Eng.</h4>
+                <span class="text-secondary font-headline font-bold text-xs uppercase tracking-widest mb-6 block">COO</span>
+                <p class="text-on-surface-variant text-sm leading-relaxed">
+                    Anthony leads operations at Neos Advisors as COO, driving project delivery to maximize opportunities for clients. With extensive leadership experience across nearly every facet of pipeline and infrastructure projects, he brings a unique ability to create leverage in commercial negotiations and a proven track record of building and growing businesses sustainably.
+                </p>
+            </div>
+
+            <!-- Christos Salmas - CFO -->
+            <div class="bg-surface-container-lowest p-10 text-center shadow-[0_40px_60px_rgba(26,28,27,0.04)] transition-all duration-500 hover:translate-y-[-4px]">
+                <img src="images/christos-salmas.jpg" alt="Christos Salmas" class="w-24 h-24 mx-auto rounded-full object-cover mb-6 grayscale hover:grayscale-0 transition-all duration-500"/>
+                <h4 class="text-primary font-headline text-2xl font-bold mb-1">Christos Salmas, P.Eng.</h4>
+                <span class="text-secondary font-headline font-bold text-xs uppercase tracking-widest mb-6 block">CFO</span>
+                <p class="text-on-surface-variant text-sm leading-relaxed">
+                    Chris oversees financial operations at Neos Advisors, ensuring clients receive sound guidance to navigate complex projects. He's committed to delivering measurable results for construction businesses and Indigenous partners across Western Canada.
+                </p>
+            </div>
+        </div>
+
+        <!-- Management Team Divider -->
+        <div class="flex items-center justify-center gap-4 mb-12">
+            <div class="h-[1px] w-12 md:w-24 bg-on-surface/10"></div>
+            <span class="text-on-surface/40 uppercase text-xs tracking-widest font-headline font-bold">Management Team</span>
+            <div class="h-[1px] w-12 md:w-24 bg-on-surface/10"></div>
+        </div>
+
+        <!-- Taylor McLeod -->
+        <div class="flex justify-center">
+            <div class="w-full max-w-sm">
+                <div class="bg-surface-container-lowest p-10 text-center shadow-[0_40px_60px_rgba(26,28,27,0.04)] transition-all duration-500 hover:translate-y-[-4px]">
+                    <img src="images/taylor-mcleod.jpg" alt="Taylor McLeod" class="w-24 h-24 mx-auto rounded-full object-cover mb-6 grayscale hover:grayscale-0 transition-all duration-500"/>
+                    <h4 class="text-primary font-headline text-2xl font-bold mb-1">Taylor McLeod</h4>
+                    <span class="text-secondary font-headline font-bold text-xs uppercase tracking-widest mb-6 block">Indigenous Engagement Manager</span>
+                    <p class="text-on-surface-variant text-sm leading-relaxed">
+                        Taylor leads Indigenous engagement at Neos Advisors, with a background in building partnerships between Nations and major project proponents. She's passionate about creating meaningful opportunities that benefit both industry and Indigenous communities.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== CAREERS SECTION ==================== -->
+<section id="careers" class="py-28 bg-primary-container relative overflow-hidden">
+    <!-- Background image -->
+    <div class="absolute inset-0 opacity-20">
+        <img src="images/image%202.png" class="w-full h-full object-cover" alt="Helicopter Operations" />
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-r from-primary-container via-primary-container/95 to-primary-container/80"></div>
+
+    <div class="max-w-7xl mx-auto px-8 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
+            <div>
+                <span class="text-secondary font-headline font-bold tracking-[0.2em] text-sm uppercase block mb-4">Careers</span>
+                <h2 class="text-white font-headline text-4xl md:text-5xl font-extrabold tracking-tight mb-6">Build Your Career <br/>with Neos</h2>
+                <p class="text-white/70 text-lg mb-10 leading-relaxed">
+                    Join a team of industry professionals dedicated to delivering exceptional results for our clients. We're always looking for talented individuals who share our commitment to excellence.
+                </p>
+
+                <div class="grid sm:grid-cols-2 gap-4 mb-12">
+                    <div class="flex items-center gap-3 text-white/80">
+                        <span class="material-symbols-outlined text-secondary text-lg">check_circle</span>
+                        <span>Competitive compensation</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-white/80">
+                        <span class="material-symbols-outlined text-secondary text-lg">check_circle</span>
+                        <span>Professional development</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-white/80">
+                        <span class="material-symbols-outlined text-secondary text-lg">check_circle</span>
+                        <span>Diverse project portfolio</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-white/80">
+                        <span class="material-symbols-outlined text-secondary text-lg">check_circle</span>
+                        <span>Collaborative culture</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-white/80">
+                        <span class="material-symbols-outlined text-secondary text-lg">check_circle</span>
+                        <span>Indigenous partnerships</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-white/80">
+                        <span class="material-symbols-outlined text-secondary text-lg">check_circle</span>
+                        <span>Growth opportunities</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Application Form -->
+            <div class="bg-white/5 backdrop-blur-md border border-white/10 p-8 md:p-10 rounded-lg">
+                <h3 class="text-white font-headline text-2xl font-bold mb-2">Apply Now</h3>
+                <p class="text-white/50 text-sm mb-8">Submit your application and join our team.</p>
+
+                <form class="space-y-4">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-headline font-bold uppercase tracking-widest text-secondary mb-2">First Name</label>
+                            <input type="text" class="w-full bg-primary-container/50 border border-white/10 rounded py-3 px-3 text-white placeholder-white/30 focus:border-secondary focus:outline-none transition-colors" placeholder="John" required/>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-headline font-bold uppercase tracking-widest text-secondary mb-2">Last Name</label>
+                            <input type="text" class="w-full bg-primary-container/50 border border-white/10 rounded py-3 px-3 text-white placeholder-white/30 focus:border-secondary focus:outline-none transition-colors" placeholder="Doe" required/>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-headline font-bold uppercase tracking-widest text-secondary mb-2">Email</label>
+                        <input type="email" class="w-full bg-primary-container/50 border border-white/10 rounded py-3 px-3 text-white placeholder-white/30 focus:border-secondary focus:outline-none transition-colors" placeholder="john@example.com" required/>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-headline font-bold uppercase tracking-widest text-secondary mb-2">Position</label>
+                        <select class="w-full bg-primary-container/50 border border-white/10 rounded py-3 px-3 text-white focus:border-secondary focus:outline-none transition-colors">
+                            <option>Project Management</option>
+                            <option>Project Controls</option>
+                            <option>Construction Management</option>
+                            <option>Commercial Advisory</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-headline font-bold uppercase tracking-widest text-secondary mb-2">Message</label>
+                        <textarea rows="3" class="w-full bg-primary-container/50 border border-white/10 rounded py-3 px-3 text-white placeholder-white/30 focus:border-secondary focus:outline-none transition-colors resize-none" placeholder="Tell us about yourself..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-secondary text-on-secondary py-4 rounded-lg font-headline font-bold tracking-wide hover:opacity-90 transition-opacity mt-4">
+                        Submit Application
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="bg-surface-dim pt-20 pb-10">
+    <div class="max-w-7xl mx-auto px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full mb-16">
+            <div>
+                <span class="text-lg font-bold text-primary uppercase font-headline mb-4 block">NEOS ADVISORS</span>
+                <p class="text-on-surface-variant text-sm max-w-md leading-relaxed">
+                    Leading Western Canada with integrity, technical expertise, and field-credible strategic advisory for linear infrastructure and Indigenous engagement.
+                </p>
+            </div>
+            <div class="flex md:justify-end gap-12">
+                <div class="flex flex-col gap-3">
+                    <span class="text-xs font-headline font-bold uppercase tracking-widest text-primary">Navigation</span>
+                    <a class="text-primary-container/60 hover:text-[#745B1C] transition-all text-sm" href="#about">About</a>
+                    <a class="text-primary-container/60 hover:text-[#745B1C] transition-all text-sm" href="#services">Services</a>
+                    <a class="text-primary-container/60 hover:text-[#745B1C] transition-all text-sm" href="#results">Results</a>
+                    <a class="text-primary-container/60 hover:text-[#745B1C] transition-all text-sm" href="#team">Team</a>
+                    <a class="text-primary-container/60 hover:text-[#745B1C] transition-all text-sm" href="#careers">Careers</a>
+                </div>
+                <div class="flex flex-col gap-3">
+                    <span class="text-xs font-headline font-bold uppercase tracking-widest text-primary">Legal</span>
+                    <a class="text-primary-container/60 hover:text-[#745B1C] transition-all text-sm" href="#">Privacy Policy</a>
+                    <a class="text-primary-container/60 hover:text-[#745B1C] transition-all text-sm" href="#">Terms of Service</a>
+                    <a class="text-primary-container/60 hover:text-[#745B1C] transition-all text-sm" href="#">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+        <div class="pt-8 border-t border-outline-variant/20 flex flex-col md:flex-row justify-between gap-4">
+            <span class="text-primary-container/60 text-xs font-body leading-relaxed">&copy; 2026 Neos Advisors Ltd. Edmonton, Alberta.</span>
+            <div class="flex gap-4">
+                <span class="text-xs text-primary-container/40">Registered P.Eng. Firm</span>
+                <span class="text-xs text-primary-container/40">ISO 9001 Alignment</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
