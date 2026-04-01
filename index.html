@@ -102,9 +102,50 @@
     .scroll-track:hover {
         animation-play-state: paused;
     }
+
+    /* Loader animations */
+    @keyframes loader-fade-in {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes loader-bar {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(100%); }
+    }
+    @keyframes loader-slide-up {
+        from { transform: translateY(0); }
+        to { transform: translateY(-100%); }
+    }
+    .loader-title {
+        animation: loader-fade-in 0.8s ease 0.2s both;
+    }
+    .loader-subtitle {
+        animation: loader-fade-in 0.8s ease 0.5s both;
+    }
+    .loader-bar-inner {
+        animation: loader-bar 1.5s ease-in-out infinite;
+    }
+    .loader-exit {
+        animation: loader-slide-up 0.8s cubic-bezier(0.76, 0, 0.24, 1) 2.2s forwards;
+    }
 </style>
 </head>
 <body class="bg-surface font-body text-on-surface">
+
+<!-- ==================== LOADING SCREEN ==================== -->
+<div class="fixed inset-0 z-[9999] flex items-center justify-center bg-primary-container loader-exit">
+    <div class="relative flex flex-col items-center">
+        <h1 class="font-headline text-5xl md:text-7xl font-semibold text-white tracking-wider loader-title">
+            NEOS
+        </h1>
+        <div class="mt-6 h-[1px] bg-white/20 w-48 overflow-hidden relative">
+            <div class="absolute inset-0 bg-secondary w-full h-full loader-bar-inner"></div>
+        </div>
+        <span class="mt-4 text-secondary text-xs tracking-[0.3em] uppercase loader-subtitle">
+            Advisors Ltd.
+        </span>
+    </div>
+</div>
 
 <!-- ==================== TOP NAV BAR ==================== -->
 <nav class="fixed top-0 w-full z-50 glass-nav shadow-[0_40px_60px_rgba(26,28,27,0.04)]">
@@ -130,12 +171,12 @@
         <div class="absolute inset-0 hero-gradient opacity-85"></div>
     </div>
     <div class="relative z-10 max-w-7xl mx-auto px-8 w-full">
-        <div class="max-w-3xl">
+        <div class="max-w-5xl">
             <span class="inline-block text-secondary font-headline font-extrabold tracking-[0.2em] text-xs uppercase mb-6">Strategic Construction Advisory</span>
-            <h1 class="text-white font-headline text-5xl md:text-7xl font-extrabold tracking-tighter leading-[1.05] mb-4">
+            <h1 class="text-white font-headline text-6xl md:text-8xl lg:text-[10rem] font-medium tracking-tight leading-[0.9] mb-4">
                 Partner Early.
             </h1>
-            <h1 class="font-headline text-5xl md:text-7xl font-extrabold tracking-tighter leading-[1.05] mb-8 italic">
+            <h1 class="font-headline text-6xl md:text-8xl lg:text-[10rem] font-medium tracking-tight leading-[0.9] mb-8 italic">
                 <span class="text-gradient">Build Better.</span>
             </h1>
             <p class="text-on-primary-container text-lg md:text-xl font-body leading-relaxed mb-10 max-w-2xl">
