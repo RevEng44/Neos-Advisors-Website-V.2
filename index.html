@@ -39,7 +39,7 @@
             "surface-container-low": "#f4f3f1",
             "on-error-container": "#93000a",
             "on-secondary-fixed": "#251a00",
-            "secondary": "#745b1c",
+            "secondary": "#e0b04f",
             "primary-fixed-dim": "#b2c8e5",
             "surface-tint": "#4b6079",
             "outline": "#74777d",
@@ -150,13 +150,13 @@
 <!-- ==================== TOP NAV BAR ==================== -->
 <nav class="fixed top-0 w-full z-50 glass-nav shadow-[0_40px_60px_rgba(26,28,27,0.04)]">
     <div class="flex justify-between items-center w-full px-8 py-6 max-w-7xl mx-auto">
-        <a href="#hero"><img src="images/logo-header.jpg" alt="Neos Advisors" class="h-10 w-auto"/></a>
+        <a href="#hero"><img src="images/logo-header.png" alt="Neos Advisors" class="h-10 w-auto"/></a>
         <div class="hidden md:flex items-center gap-8">
-            <a class="text-primary-container opacity-80 font-headline font-bold tracking-tight hover:text-[#745B1C] transition-colors duration-300" href="#about">About</a>
-            <a class="text-primary-container opacity-80 font-headline font-bold tracking-tight hover:text-[#745B1C] transition-colors duration-300" href="#services">Services</a>
-            <a class="text-primary-container opacity-80 font-headline font-bold tracking-tight hover:text-[#745B1C] transition-colors duration-300" href="#results">Results</a>
-            <a class="text-primary-container opacity-80 font-headline font-bold tracking-tight hover:text-[#745B1C] transition-colors duration-300" href="#team">Team</a>
-            <a class="text-primary-container opacity-80 font-headline font-bold tracking-tight hover:text-[#745B1C] transition-colors duration-300" href="#careers">Careers</a>
+            <a class="text-primary-container opacity-80 font-headline font-bold tracking-tight hover:text-[#e0b04f] transition-colors duration-300" href="#about">About</a>
+            <a class="text-primary-container opacity-80 font-headline font-bold tracking-tight hover:text-[#e0b04f] transition-colors duration-300" href="#services">Services</a>
+            <a class="text-primary-container opacity-80 font-headline font-bold tracking-tight hover:text-[#e0b04f] transition-colors duration-300" href="#results">Results</a>
+            <a class="text-primary-container opacity-80 font-headline font-bold tracking-tight hover:text-[#e0b04f] transition-colors duration-300" href="#team">Team</a>
+            <a class="text-primary-container opacity-80 font-headline font-bold tracking-tight hover:text-[#e0b04f] transition-colors duration-300" href="#careers">Careers</a>
         </div>
         <a href="#careers" class="bg-secondary text-on-secondary px-6 py-2.5 rounded-lg font-headline font-bold text-sm tracking-wide hover:opacity-90 transition-opacity">
             Contact Us
@@ -471,37 +471,43 @@
             <h2 class="text-primary font-headline text-4xl md:text-5xl font-extrabold tracking-tight">Technical Authority</h2>
         </div>
 
-        <!-- Executive Leadership Grid (3 columns) -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <!-- Executive Leadership Cards (photo left, info right) -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
 
             <!-- Stavros Salmas - CEO -->
-            <div class="bg-surface-container-lowest p-10 text-center shadow-[0_40px_60px_rgba(26,28,27,0.04)] transition-all duration-500 hover:translate-y-[-4px]">
-                <img src="images/stavros-salmas.jpg" alt="Stavros Salmas" class="w-24 h-24 mx-auto rounded-full object-cover mb-6 grayscale hover:grayscale-0 transition-all duration-500"/>
-                <h4 class="text-primary font-headline text-2xl font-bold mb-1">Stavros Salmas, P.Eng.</h4>
-                <span class="text-secondary font-headline font-bold text-xs uppercase tracking-widest mb-6 block">CEO</span>
-                <p class="text-on-surface-variant text-sm leading-relaxed">
-                    Stavros leads Neos Advisors as CEO, setting the strategic vision, direction, and leads business growth for the firm. He brings extensive industry expertise to help Indigenous Nations and growing businesses across Western Canada achieve sustainable success in the construction sector.
-                </p>
+            <div class="flex flex-col md:flex-row bg-surface-container-lowest overflow-hidden shadow-[0_40px_60px_rgba(26,28,27,0.04)]">
+                <img src="images/stavros-salmas.jpg" alt="Stavros Salmas" class="w-full md:w-[40%] h-80 object-cover grayscale"/>
+                <div class="p-10 flex flex-col justify-center">
+                    <h4 class="text-primary font-headline text-2xl font-bold mb-1">Stavros Salmas, P.Eng.</h4>
+                    <span class="text-secondary font-headline font-bold text-xs uppercase tracking-widest mb-6">CEO</span>
+                    <p class="text-on-surface-variant text-sm leading-relaxed">
+                        Stavros leads Neos Advisors as CEO, setting the strategic vision, direction, and leads business growth for the firm. He brings extensive industry expertise to help Indigenous Nations and growing businesses across Western Canada achieve sustainable success in the construction sector.
+                    </p>
+                </div>
             </div>
 
             <!-- Anthony Del Mastro - COO -->
-            <div class="bg-surface-container-lowest p-10 text-center shadow-[0_40px_60px_rgba(26,28,27,0.04)] transition-all duration-500 hover:translate-y-[-4px]">
-                <img src="images/anthony-delmastro.jpeg" alt="Anthony Del Mastro" class="w-24 h-24 mx-auto rounded-full object-cover mb-6 grayscale hover:grayscale-0 transition-all duration-500"/>
-                <h4 class="text-primary font-headline text-2xl font-bold mb-1">Anthony Del Mastro, P.Eng.</h4>
-                <span class="text-secondary font-headline font-bold text-xs uppercase tracking-widest mb-6 block">COO</span>
-                <p class="text-on-surface-variant text-sm leading-relaxed">
-                    Anthony leads operations at Neos Advisors as COO, driving project delivery to maximize opportunities for clients. With extensive leadership experience across nearly every facet of pipeline and infrastructure projects, he brings a unique ability to create leverage in commercial negotiations and a proven track record of building and growing businesses sustainably.
-                </p>
+            <div class="flex flex-col md:flex-row bg-surface-container-lowest overflow-hidden shadow-[0_40px_60px_rgba(26,28,27,0.04)]">
+                <img src="images/anthony-delmastro.jpeg" alt="Anthony Del Mastro" class="w-full md:w-[40%] h-80 object-cover grayscale"/>
+                <div class="p-10 flex flex-col justify-center">
+                    <h4 class="text-primary font-headline text-2xl font-bold mb-1">Anthony Del Mastro, P.Eng.</h4>
+                    <span class="text-secondary font-headline font-bold text-xs uppercase tracking-widest mb-6">COO</span>
+                    <p class="text-on-surface-variant text-sm leading-relaxed">
+                        Anthony leads operations at Neos Advisors as COO, driving project delivery to maximize opportunities for clients. With extensive leadership experience across nearly every facet of pipeline and infrastructure projects, he brings a unique ability to create leverage in commercial negotiations and a proven track record of building and growing businesses sustainably.
+                    </p>
+                </div>
             </div>
 
             <!-- Christos Salmas - CFO -->
-            <div class="bg-surface-container-lowest p-10 text-center shadow-[0_40px_60px_rgba(26,28,27,0.04)] transition-all duration-500 hover:translate-y-[-4px]">
-                <img src="images/christos-salmas.jpg" alt="Christos Salmas" class="w-24 h-24 mx-auto rounded-full object-cover mb-6 grayscale hover:grayscale-0 transition-all duration-500"/>
-                <h4 class="text-primary font-headline text-2xl font-bold mb-1">Christos Salmas, P.Eng.</h4>
-                <span class="text-secondary font-headline font-bold text-xs uppercase tracking-widest mb-6 block">CFO</span>
-                <p class="text-on-surface-variant text-sm leading-relaxed">
-                    Chris oversees financial operations at Neos Advisors, ensuring clients receive sound guidance to navigate complex projects. He's committed to delivering measurable results for construction businesses and Indigenous partners across Western Canada.
-                </p>
+            <div class="flex flex-col md:flex-row bg-surface-container-lowest overflow-hidden shadow-[0_40px_60px_rgba(26,28,27,0.04)]">
+                <img src="images/christos-salmas.jpg" alt="Christos Salmas" class="w-full md:w-[40%] h-80 object-cover grayscale"/>
+                <div class="p-10 flex flex-col justify-center">
+                    <h4 class="text-primary font-headline text-2xl font-bold mb-1">Christos Salmas, P.Eng.</h4>
+                    <span class="text-secondary font-headline font-bold text-xs uppercase tracking-widest mb-6">CFO</span>
+                    <p class="text-on-surface-variant text-sm leading-relaxed">
+                        Chris oversees financial operations at Neos Advisors, ensuring clients receive sound guidance to navigate complex projects. He's committed to delivering measurable results for construction businesses and Indigenous partners across Western Canada.
+                    </p>
+                </div>
             </div>
         </div>
 
@@ -513,12 +519,12 @@
         </div>
 
         <!-- Taylor McLeod -->
-        <div class="flex justify-center">
-            <div class="w-full max-w-sm">
-                <div class="bg-surface-container-lowest p-10 text-center shadow-[0_40px_60px_rgba(26,28,27,0.04)] transition-all duration-500 hover:translate-y-[-4px]">
-                    <img src="images/taylor-mcleod.jpeg" alt="Taylor McLeod" class="w-24 h-24 mx-auto rounded-full object-cover mb-6 grayscale hover:grayscale-0 transition-all duration-500"/>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div class="flex flex-col md:flex-row bg-surface-container-lowest overflow-hidden shadow-[0_40px_60px_rgba(26,28,27,0.04)]">
+                <img src="images/taylor-mcleod.jpeg" alt="Taylor McLeod" class="w-full md:w-[40%] h-80 object-cover grayscale"/>
+                <div class="p-10 flex flex-col justify-center">
                     <h4 class="text-primary font-headline text-2xl font-bold mb-1">Taylor McLeod</h4>
-                    <span class="text-secondary font-headline font-bold text-xs uppercase tracking-widest mb-6 block">Indigenous Engagement Manager</span>
+                    <span class="text-secondary font-headline font-bold text-xs uppercase tracking-widest mb-6">Indigenous Engagement Manager</span>
                     <p class="text-on-surface-variant text-sm leading-relaxed">
                         Taylor leads Indigenous engagement at Neos Advisors, with a background in building partnerships between Nations and major project proponents. She's passionate about creating meaningful opportunities that benefit both industry and Indigenous communities.
                     </p>
@@ -633,15 +639,15 @@
             <div class="flex md:justify-end gap-12">
                 <div class="flex flex-col gap-3">
                     <span class="text-xs font-headline font-bold uppercase tracking-widest text-primary">Navigation</span>
-                    <a class="text-primary-container/60 hover:text-[#745B1C] transition-all text-sm" href="#about">About</a>
-                    <a class="text-primary-container/60 hover:text-[#745B1C] transition-all text-sm" href="#services">Services</a>
-                    <a class="text-primary-container/60 hover:text-[#745B1C] transition-all text-sm" href="#results">Results</a>
-                    <a class="text-primary-container/60 hover:text-[#745B1C] transition-all text-sm" href="#team">Team</a>
-                    <a class="text-primary-container/60 hover:text-[#745B1C] transition-all text-sm" href="#careers">Careers</a>
+                    <a class="text-primary-container/60 hover:text-[#e0b04f] transition-all text-sm" href="#about">About</a>
+                    <a class="text-primary-container/60 hover:text-[#e0b04f] transition-all text-sm" href="#services">Services</a>
+                    <a class="text-primary-container/60 hover:text-[#e0b04f] transition-all text-sm" href="#results">Results</a>
+                    <a class="text-primary-container/60 hover:text-[#e0b04f] transition-all text-sm" href="#team">Team</a>
+                    <a class="text-primary-container/60 hover:text-[#e0b04f] transition-all text-sm" href="#careers">Careers</a>
                 </div>
                 <div class="flex flex-col gap-3">
                     <span class="text-xs font-headline font-bold uppercase tracking-widest text-primary">Contact</span>
-                    <a class="text-primary-container/60 hover:text-[#745B1C] transition-all text-sm" href="mailto:info@neosadvisors.ca">info@neosadvisors.ca</a>
+                    <a class="text-primary-container/60 hover:text-[#e0b04f] transition-all text-sm" href="mailto:info@neosadvisors.ca">info@neosadvisors.ca</a>
                     <span class="text-primary-container/60 text-sm">Western Canada</span>
                 </div>
             </div>
