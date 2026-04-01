@@ -54,7 +54,7 @@
             "surface-bright": "#faf9f7",
             "on-surface": "#1a1c1b",
             "tertiary-fixed-dim": "#bcc7dd",
-            "surface-dim": "#dadad8",
+            "surface-dim": "#c6c7c5",
             "tertiary-fixed": "#d8e3fa",
             "on-secondary-container": "#795f20",
             "primary": "#000d1d",
@@ -148,15 +148,15 @@
 </div>
 
 <!-- ==================== TOP NAV BAR ==================== -->
-<nav class="fixed top-0 w-full z-50 glass-nav shadow-[0_40px_60px_rgba(26,28,27,0.04)]">
-    <div class="flex justify-between items-center w-full px-8 py-6 max-w-7xl mx-auto">
-        <a href="#hero"><img src="images/logo-header.png" alt="Neos Advisors" class="h-10 w-auto"/></a>
-        <div class="hidden md:flex items-center gap-8">
-            <a class="text-primary-container opacity-80 font-headline font-bold tracking-tight hover:text-[#e0b04f] transition-colors duration-300" href="#about">About</a>
-            <a class="text-primary-container opacity-80 font-headline font-bold tracking-tight hover:text-[#e0b04f] transition-colors duration-300" href="#services">Services</a>
-            <a class="text-primary-container opacity-80 font-headline font-bold tracking-tight hover:text-[#e0b04f] transition-colors duration-300" href="#results">Results</a>
-            <a class="text-primary-container opacity-80 font-headline font-bold tracking-tight hover:text-[#e0b04f] transition-colors duration-300" href="#team">Team</a>
-            <a class="text-primary-container opacity-80 font-headline font-bold tracking-tight hover:text-[#e0b04f] transition-colors duration-300" href="#careers">Careers</a>
+<nav class="fixed top-0 w-full z-50 glass-nav border-t-2 border-t-secondary border-b border-b-secondary/20">
+    <div class="flex justify-between items-center w-full px-8 py-4 max-w-7xl mx-auto">
+        <a href="#hero"><img src="images/logo-header.png" alt="Neos Advisors" class="h-14 w-auto"/></a>
+        <div class="hidden md:flex items-center gap-6 ml-auto mr-6">
+            <a class="text-primary-container opacity-80 font-body font-medium text-sm hover:text-[#e0b04f] transition-colors duration-300" href="#about">About</a>
+            <a class="text-primary-container opacity-80 font-body font-medium text-sm hover:text-[#e0b04f] transition-colors duration-300" href="#services">Services</a>
+            <a class="text-primary-container opacity-80 font-body font-medium text-sm hover:text-[#e0b04f] transition-colors duration-300" href="#results">Results</a>
+            <a class="text-primary-container opacity-80 font-body font-medium text-sm hover:text-[#e0b04f] transition-colors duration-300" href="#team">Team</a>
+            <a class="text-primary-container opacity-80 font-body font-medium text-sm hover:text-[#e0b04f] transition-colors duration-300" href="#careers">Careers</a>
         </div>
         <a href="#careers" class="bg-secondary text-on-secondary px-6 py-2.5 rounded-lg font-headline font-bold text-sm tracking-wide hover:opacity-90 transition-opacity">
             Contact Us
@@ -608,29 +608,56 @@
 <!-- ==================== FOOTER ==================== -->
 <footer class="bg-surface-dim pt-20 pb-10">
     <div class="max-w-7xl mx-auto px-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full mb-16">
-            <div>
-                <span class="text-lg font-bold text-primary uppercase font-headline mb-4 block">NEOS ADVISORS</span>
-                <p class="text-on-surface-variant text-sm max-w-md leading-relaxed">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+            <!-- Logo & Description -->
+            <div class="lg:col-span-1">
+                <div class="flex items-center gap-3 mb-6">
+                    <img src="images/logo-header.png" alt="Neos Advisors Logo" class="h-10 w-auto"/>
+                </div>
+                <p class="text-on-surface-variant text-sm leading-relaxed">
                     Leading Western Canada with integrity, technical expertise, and field-credible strategic advisory for linear infrastructure and Indigenous engagement.
                 </p>
             </div>
-            <div class="flex md:justify-end gap-12">
-                <div class="flex flex-col gap-3">
-                    <span class="text-xs font-headline font-bold uppercase tracking-widest text-primary">Navigation</span>
-                    <a class="text-primary-container/60 hover:text-[#e0b04f] transition-all text-sm" href="#about">About</a>
-                    <a class="text-primary-container/60 hover:text-[#e0b04f] transition-all text-sm" href="#services">Services</a>
-                    <a class="text-primary-container/60 hover:text-[#e0b04f] transition-all text-sm" href="#results">Results</a>
-                    <a class="text-primary-container/60 hover:text-[#e0b04f] transition-all text-sm" href="#team">Team</a>
-                    <a class="text-primary-container/60 hover:text-[#e0b04f] transition-all text-sm" href="#careers">Careers</a>
-                </div>
-                <div class="flex flex-col gap-3">
-                    <span class="text-xs font-headline font-bold uppercase tracking-widest text-primary">Contact</span>
-                    <a class="text-primary-container/60 hover:text-[#e0b04f] transition-all text-sm" href="mailto:info@neosadvisors.ca">info@neosadvisors.ca</a>
-                    <span class="text-primary-container/60 text-sm">Western Canada</span>
+
+            <!-- Services -->
+            <div>
+                <span class="text-xs font-headline font-bold uppercase tracking-widest text-secondary mb-6 block">Services</span>
+                <ul class="space-y-3 text-sm text-primary-container/60">
+                    <li><a href="#services" class="hover:text-[#e0b04f] transition-colors">Capacity Planning</a></li>
+                    <li><a href="#services" class="hover:text-[#e0b04f] transition-colors">Commercial Advisory</a></li>
+                    <li><a href="#services" class="hover:text-[#e0b04f] transition-colors">Project Execution</a></li>
+                    <li><a href="#services" class="hover:text-[#e0b04f] transition-colors">Business Development</a></li>
+                    <li><a href="#services" class="hover:text-[#e0b04f] transition-colors">Indigenous Relations</a></li>
+                </ul>
+            </div>
+
+            <!-- Company -->
+            <div>
+                <span class="text-xs font-headline font-bold uppercase tracking-widest text-secondary mb-6 block">Company</span>
+                <ul class="space-y-3 text-sm text-primary-container/60">
+                    <li><a href="#about" class="hover:text-[#e0b04f] transition-colors">About Us</a></li>
+                    <li><a href="#team" class="hover:text-[#e0b04f] transition-colors">Our Team</a></li>
+                    <li><a href="#results" class="hover:text-[#e0b04f] transition-colors">Case Studies</a></li>
+                    <li><a href="#careers" class="hover:text-[#e0b04f] transition-colors">Careers</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact -->
+            <div>
+                <span class="text-xs font-headline font-bold uppercase tracking-widest text-secondary mb-6 block">Contact</span>
+                <div class="space-y-4">
+                    <a href="mailto:info@neosadvisors.ca" class="flex items-center gap-3 text-sm text-primary-container/60 hover:text-[#e0b04f] transition-colors">
+                        <span class="material-symbols-outlined text-secondary text-lg">mail</span>
+                        info@neosadvisors.ca
+                    </a>
+                    <div class="flex items-center gap-3 text-sm text-primary-container/60">
+                        <span class="material-symbols-outlined text-secondary text-lg">location_on</span>
+                        Western Canada
+                    </div>
                 </div>
             </div>
         </div>
+
         <div class="pt-8 border-t border-outline-variant/20 flex flex-col md:flex-row justify-between gap-4">
             <span class="text-primary-container/60 text-xs font-body leading-relaxed">&copy; 2026 Neos Advisors Ltd. Edmonton, Alberta.</span>
         </div>
