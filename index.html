@@ -128,13 +128,55 @@
     .loader-exit {
         animation: loader-slide-up 0.8s cubic-bezier(0.76, 0, 0.24, 1) 2.2s forwards;
     }
+
+    /* Flowing lines animation */
+    @keyframes flow-right {
+        0% { transform: translateX(-50%); }
+        100% { transform: translateX(0%); }
+    }
+    .flowing-lines {
+        position: relative;
+        overflow: hidden;
+    }
+    .flowing-lines-track {
+        display: flex;
+        width: 200%;
+        animation: flow-right 20s linear infinite;
+    }
+    .flowing-lines-track svg {
+        width: 50%;
+        flex-shrink: 0;
+    }
+    /* Loader flowing lines - slower, more subtle */
+    .loader-flowing-lines .flowing-lines-track {
+        animation: flow-right 30s linear infinite;
+        opacity: 0.15;
+    }
 </style>
 </head>
 <body class="bg-surface font-body text-on-surface">
 
 <!-- ==================== LOADING SCREEN ==================== -->
 <div class="fixed inset-0 z-[9999] flex items-center justify-center bg-primary-container loader-exit">
-    <div class="relative flex flex-col items-center">
+    <!-- Flowing lines background -->
+    <div class="absolute inset-0 flex items-center loader-flowing-lines">
+        <div class="flowing-lines w-full h-40">
+            <div class="flowing-lines-track">
+                <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0,60 C150,20 300,100 450,60 C600,20 750,100 900,60 C1050,20 1200,100 1200,60" fill="none" stroke="#e0b04f" stroke-width="2"/>
+                    <path d="M0,70 C150,30 300,110 450,70 C600,30 750,110 900,70 C1050,30 1200,110 1200,70" fill="none" stroke="#e0b04f" stroke-width="1.5" opacity="0.6"/>
+                    <path d="M0,50 C150,10 300,90 450,50 C600,10 750,90 900,50 C1050,10 1200,90 1200,50" fill="none" stroke="white" stroke-width="1" opacity="0.3"/>
+                </svg>
+                <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0,60 C150,20 300,100 450,60 C600,20 750,100 900,60 C1050,20 1200,100 1200,60" fill="none" stroke="#e0b04f" stroke-width="2"/>
+                    <path d="M0,70 C150,30 300,110 450,70 C600,30 750,110 900,70 C1050,30 1200,110 1200,70" fill="none" stroke="#e0b04f" stroke-width="1.5" opacity="0.6"/>
+                    <path d="M0,50 C150,10 300,90 450,50 C600,10 750,90 900,50 C1050,10 1200,90 1200,50" fill="none" stroke="white" stroke-width="1" opacity="0.3"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+    <!-- Logo content -->
+    <div class="relative flex flex-col items-center z-10">
         <h1 class="font-headline text-5xl md:text-7xl font-semibold text-white tracking-wider loader-title">
             NEOS
         </h1>
@@ -193,6 +235,24 @@
         </div>
     </div>
 </section>
+
+<!-- ==================== FLOWING LINES DIVIDER ==================== -->
+<div class="w-full bg-primary-container py-6 flowing-lines">
+    <div class="flowing-lines-track">
+        <svg viewBox="0 0 1200 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,40 C150,10 300,70 450,40 C600,10 750,70 900,40 C1050,10 1200,70 1200,40" fill="none" stroke="#e0b04f" stroke-width="2.5"/>
+            <path d="M0,50 C150,20 300,80 450,50 C600,20 750,80 900,50 C1050,20 1200,80 1200,50" fill="none" stroke="#e0b04f" stroke-width="1.5" opacity="0.5"/>
+            <path d="M0,30 C150,0 300,60 450,30 C600,0 750,60 900,30 C1050,0 1200,60 1200,30" fill="none" stroke="white" stroke-width="1.5" opacity="0.2"/>
+            <path d="M0,45 C180,15 360,75 540,45 C720,15 900,75 1080,45 L1200,45" fill="none" stroke="#e0b04f" stroke-width="1" opacity="0.3"/>
+        </svg>
+        <svg viewBox="0 0 1200 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,40 C150,10 300,70 450,40 C600,10 750,70 900,40 C1050,10 1200,70 1200,40" fill="none" stroke="#e0b04f" stroke-width="2.5"/>
+            <path d="M0,50 C150,20 300,80 450,50 C600,20 750,80 900,50 C1050,20 1200,80 1200,50" fill="none" stroke="#e0b04f" stroke-width="1.5" opacity="0.5"/>
+            <path d="M0,30 C150,0 300,60 450,30 C600,0 750,60 900,30 C1050,0 1200,60 1200,30" fill="none" stroke="white" stroke-width="1.5" opacity="0.2"/>
+            <path d="M0,45 C180,15 360,75 540,45 C720,15 900,75 1080,45 L1200,45" fill="none" stroke="#e0b04f" stroke-width="1" opacity="0.3"/>
+        </svg>
+    </div>
+</div>
 
 <!-- ==================== ABOUT SECTION ==================== -->
 <section id="about" class="py-28 bg-surface">
