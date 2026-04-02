@@ -1,729 +1,906 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="dark" lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Neos Advisors | The Architectural Authority</title>
+<title>SPICCO STUDIO | FORGED FOR THE BOLD</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<!-- GSAP + ScrollTrigger -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script>
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            "on-surface-variant": "#43474d",
-            "secondary-container": "#ffdb8f",
-            "tertiary-container": "#182334",
-            "surface": "#faf9f7",
-            "inverse-primary": "#b2c8e5",
-            "inverse-on-surface": "#f1f1ef",
-            "primary-container": "#0c243a",
-            "surface-container-lowest": "#ffffff",
-            "secondary-fixed": "#ffdf9b",
-            "secondary-fixed-dim": "#e4c279",
-            "on-primary": "#ffffff",
-            "primary-fixed": "#d0e4ff",
-            "inverse-surface": "#2f3130",
-            "surface-container-high": "#e9e8e6",
-            "outline-variant": "#c4c6cd",
-            "on-tertiary-container": "#7f8a9f",
-            "tertiary": "#030d1d",
-            "on-secondary-fixed-variant": "#5a4303",
-            "surface-container": "#efeeec",
-            "on-tertiary-fixed": "#111c2c",
-            "on-tertiary": "#ffffff",
-            "on-tertiary-fixed-variant": "#3c475a",
-            "error": "#ba1a1a",
-            "surface-container-low": "#f4f3f1",
-            "on-error-container": "#93000a",
-            "on-secondary-fixed": "#251a00",
-            "secondary": "#e0b04f",
-            "primary-fixed-dim": "#b2c8e5",
-            "surface-tint": "#4b6079",
-            "outline": "#74777d",
-            "on-primary-fixed": "#041d33",
-            "error-container": "#ffdad6",
-            "surface-variant": "#e3e2e0",
-            "on-background": "#1a1c1b",
-            "on-primary-fixed-variant": "#334860",
-            "on-primary-container": "#768ca6",
-            "on-secondary": "#ffffff",
-            "background": "#faf9f7",
-            "surface-bright": "#faf9f7",
-            "on-surface": "#1a1c1b",
-            "tertiary-fixed-dim": "#bcc7dd",
-            "surface-dim": "#c6c7c5",
-            "tertiary-fixed": "#d8e3fa",
-            "on-secondary-container": "#795f20",
-            "primary": "#000d1d",
-            "surface-container-highest": "#e3e2e0",
-            "on-error": "#ffffff"
-          },
-          fontFamily: {
-            "headline": ["Playfair Display", "serif"],
-            "body": ["DM Sans", "sans-serif"],
-            "label": ["DM Sans", "sans-serif"]
-          },
-          borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
-        },
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "on-primary-fixed": "#281900",
+        "tertiary-fixed": "#d1e4ff",
+        "inverse-surface": "#e9e1dc",
+        "on-error": "#690005",
+        "error": "#ffb4ab",
+        "on-surface": "#e9e1dc",
+        "secondary-fixed-dim": "#fcb882",
+        "tertiary": "#9dcaff",
+        "secondary-fixed": "#ffdcc3",
+        "on-primary-container": "#462f00",
+        "surface-container-low": "#1e1b18",
+        "on-primary-fixed-variant": "#5f4100",
+        "primary-container": "#c8922a",
+        "on-secondary": "#4d2600",
+        "tertiary-container": "#62a0e0",
+        "primary-fixed-dim": "#f8bc51",
+        "surface-container": "#231f1c",
+        "surface-container-lowest": "#110e0b",
+        "outline-variant": "#504536",
+        "surface-tint": "#f8bc51",
+        "on-tertiary-fixed": "#001d35",
+        "surface-container-high": "#2d2927",
+        "on-tertiary": "#003257",
+        "on-primary": "#422c00",
+        "surface": "#161310",
+        "on-secondary-container": "#ecaa76",
+        "surface-bright": "#3d3835",
+        "primary-fixed": "#ffdeab",
+        "surface-container-highest": "#383431",
+        "primary": "#f8bc51",
+        "surface-variant": "#383431",
+        "on-secondary-fixed-variant": "#693c10",
+        "background": "#0D0A08",
+        "on-tertiary-container": "#00355c",
+        "on-secondary-fixed": "#2f1500",
+        "inverse-on-surface": "#34302d",
+        "tertiary-fixed-dim": "#9dcaff",
+        "inverse-primary": "#7e5700",
+        "on-background": "#e9e1dc",
+        "on-surface-variant": "#d4c4b0",
+        "secondary": "#fcb882",
+        "error-container": "#93000a",
+        "secondary-container": "#6c3e12",
+        "surface-dim": "#161310",
+        "outline": "#9c8f7c",
+        "on-error-container": "#ffdad6",
+        "on-tertiary-fixed-variant": "#00497b"
       },
-    }
+      fontFamily: {
+        "headline": ["Space Grotesk"],
+        "body": ["Manrope"],
+        "label": ["Space Grotesk"]
+      },
+      borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+    },
+  },
+}
 </script>
 <style>
-    .material-symbols-outlined {
-        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-    }
-    .hero-gradient {
-        background: linear-gradient(135deg, #000D1D 0%, #0C243A 100%);
-    }
-    .glass-nav {
-        background: rgba(250, 249, 247, 0.8);
-        backdrop-filter: blur(20px);
-    }
-    .text-gradient {
-        background: linear-gradient(to right, #ffffff, #768ca6);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-    html {
-        scroll-behavior: smooth;
-    }
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  display: inline-block;
+  line-height: 1;
+}
+.bronze-gradient {
+  background: linear-gradient(45deg, #7B4A1E, #C8922A);
+}
+.bronze-text-gradient {
+  background: linear-gradient(45deg, #F8BC51, #C8922A);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.blueprint-line {
+  background: linear-gradient(to bottom, transparent, rgba(248, 188, 81, 0.2), transparent);
+}
+html {
+  scroll-behavior: smooth;
+}
 
-    /* Trusted By scrolling animation */
-    @keyframes scroll-left {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-50%); }
-    }
-    .scroll-track {
-        animation: scroll-left 40s linear infinite;
-    }
-    .scroll-track:hover {
-        animation-play-state: paused;
-    }
+/* Navbar hide/show */
+nav.nav-hidden {
+  transform: translateY(-100%);
+}
+nav {
+  transition: transform 0.4s ease;
+}
 
-    /* Loader animations */
-    @keyframes loader-fade-in {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes loader-bar {
-        0% { transform: translateX(-100%); }
-        100% { transform: translateX(100%); }
-    }
-    @keyframes loader-slide-up {
-        from { transform: translateY(0); }
-        to { transform: translateY(-100%); }
-    }
-    .loader-title {
-        animation: loader-fade-in 0.8s ease 0.2s both;
-    }
-    .loader-subtitle {
-        animation: loader-fade-in 0.8s ease 0.5s both;
-    }
-    .loader-bar-inner {
-        animation: loader-bar 1.5s ease-in-out infinite;
-    }
-    .loader-exit {
-        animation: loader-slide-up 0.8s cubic-bezier(0.76, 0, 0.24, 1) 2.2s forwards;
-    }
+/* Service card hover lift + bronze glow */
+.service-card {
+  transition: all 0.5s ease;
+}
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(200, 146, 42, 0.15);
+}
 
-    /* Flowing lines animation */
-    @keyframes flow-right {
-        0% { transform: translateX(-50%); }
-        100% { transform: translateX(0%); }
-    }
-    .flowing-lines {
-        position: relative;
-        overflow: hidden;
-    }
-    .flowing-lines-track {
-        display: flex;
-        width: 200%;
-        animation: flow-right 20s linear infinite;
-    }
-    .flowing-lines-track svg {
-        width: 50%;
-        flex-shrink: 0;
-    }
-    /* Loader flowing lines - slower, more subtle */
-    .loader-flowing-lines .flowing-lines-track {
-        animation: flow-right 30s linear infinite;
-        opacity: 0.15;
-    }
+/* ===== ROLODEX STYLES ===== */
+.rolodex-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 0 80px;
+}
+.rolodex-scene {
+  /* High perspective = less size distortion between front/back */
+  perspective: 2200px;
+  perspective-origin: 50% 50%;
+  width: 620px;
+  height: 460px;
+  position: relative;
+  margin: 0 auto;
+}
+.rolodex-wheel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  transform-style: preserve-3d;
+}
+/* Every card: identical fixed size, centered in the wheel */
+.rolodex-card {
+  position: absolute;
+  width: 540px;
+  height: 420px;
+  /* Center using transform instead of margins for precision */
+  left: 50%;
+  top: 50%;
+  transform-style: preserve-3d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: filter 0.5s ease, opacity 0.5s ease;
+}
+
+/* Browser mockup frame — fixed size for all cards */
+.browser-frame {
+  background: #111;
+  border: 1px solid rgba(200, 146, 42, 0.15);
+  border-radius: 8px;
+  overflow: hidden;
+  width: 540px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+  transition: box-shadow 0.4s ease;
+  flex-shrink: 0;
+}
+.browser-frame:hover {
+  box-shadow: 0 16px 60px rgba(200, 146, 42, 0.25), 0 0 30px rgba(200, 146, 42, 0.1);
+}
+.browser-chrome {
+  background: #1a1a1a;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.browser-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.browser-dot.red { background: #ff5f56; }
+.browser-dot.yellow { background: #ffbd2e; }
+.browser-dot.green { background: #27c93f; }
+.browser-url {
+  margin-left: 12px;
+  font-size: 11px;
+  color: rgba(255,255,255,0.3);
+  font-family: 'Manrope', sans-serif;
+}
+.browser-content {
+  position: relative;
+  width: 540px;
+  height: 290px;
+  overflow: hidden;
+}
+.browser-content img,
+.browser-content .placeholder-screen {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.placeholder-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+/* Hover "View Site" overlay */
+.view-site-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(to top, rgba(13,10,8,0.9), transparent);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 24px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+.browser-frame:hover .view-site-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+.view-site-btn {
+  background: linear-gradient(45deg, #7B4A1E, #C8922A);
+  color: #281900;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 10px 28px;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+.view-site-btn:hover {
+  transform: scale(1.05);
+}
+
+.card-info {
+  text-align: center;
+  margin-top: 14px;
+  flex-shrink: 0;
+}
+.card-info h4 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #E9E1DC;
+}
+.card-info p {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #C8922A;
+  margin-top: 4px;
+}
+
+/* Progress dots */
+.rolodex-dots {
+  display: flex;
+  gap: 10px;
+  margin-top: 24px;
+}
+.rolodex-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(200, 146, 42, 0.2);
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+.rolodex-dot.active {
+  background: #C8922A;
+  box-shadow: 0 0 10px rgba(200, 146, 42, 0.5);
+}
+
+/* ===== MOBILE CARD STACK ===== */
+.mobile-card-stack {
+  display: none;
+}
+@media (max-width: 768px) {
+  .rolodex-wrapper {
+    display: none !important;
+  }
+  .mobile-card-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    padding: 0 1rem 3rem;
+  }
+  .mobile-card-stack .browser-frame {
+    width: 100%;
+  }
+  .mobile-card-stack .browser-content {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/10;
+  }
+  .mobile-card-stack .view-site-overlay {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+/* Form select fix */
+select option {
+  background: #161310;
+  color: #e9e1dc;
+}
+
+/* ===== LOADER ===== */
+@keyframes ember-pulse {
+  0%, 100% { box-shadow: 0 0 30px rgba(200, 146, 42, 0.15), 0 0 60px rgba(200, 146, 42, 0.05); }
+  50% { box-shadow: 0 0 50px rgba(200, 146, 42, 0.3), 0 0 100px rgba(200, 146, 42, 0.1); }
+}
+@keyframes loader-fade-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes loader-bar-sweep {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+@keyframes loader-slide-up {
+  from { transform: translateY(0); }
+  to { transform: translateY(-100%); }
+}
+.loader-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0D0A08;
+  animation: loader-slide-up 0.7s cubic-bezier(0.76, 0, 0.24, 1) 2.6s forwards;
+}
+.loader-logo {
+  animation: loader-fade-in 0.8s ease 0.2s both, ember-pulse 2s ease-in-out 0.2s infinite;
+  border-radius: 50%;
+  padding: 10px;
+}
+.loader-title {
+  animation: loader-fade-in 0.7s ease 0.5s both;
+}
+.loader-tagline {
+  animation: loader-fade-in 0.7s ease 0.9s both;
+}
+.loader-bar-track {
+  animation: loader-fade-in 0.5s ease 0.7s both;
+}
+.loader-bar-inner {
+  animation: loader-bar-sweep 1.2s ease-in-out infinite;
+}
 </style>
 </head>
-<body class="bg-surface font-body text-on-surface">
+<body class="bg-background text-on-background font-body selection:bg-primary/30">
 
-<!-- ==================== LOADING SCREEN ==================== -->
-<div class="fixed inset-0 z-[9999] flex items-center justify-center bg-primary-container loader-exit">
-    <!-- Flowing lines background -->
-    <div class="absolute inset-0 flex items-center loader-flowing-lines">
-        <div class="flowing-lines w-full h-40">
-            <div class="flowing-lines-track">
-                <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0,60 C150,20 300,100 450,60 C600,20 750,100 900,60 C1050,20 1200,100 1200,60" fill="none" stroke="#e0b04f" stroke-width="2"/>
-                    <path d="M0,70 C150,30 300,110 450,70 C600,30 750,110 900,70 C1050,30 1200,110 1200,70" fill="none" stroke="#e0b04f" stroke-width="1.5" opacity="0.6"/>
-                    <path d="M0,50 C150,10 300,90 450,50 C600,10 750,90 900,50 C1050,10 1200,90 1200,50" fill="none" stroke="white" stroke-width="1" opacity="0.3"/>
-                </svg>
-                <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0,60 C150,20 300,100 450,60 C600,20 750,100 900,60 C1050,20 1200,100 1200,60" fill="none" stroke="#e0b04f" stroke-width="2"/>
-                    <path d="M0,70 C150,30 300,110 450,70 C600,30 750,110 900,70 C1050,30 1200,110 1200,70" fill="none" stroke="#e0b04f" stroke-width="1.5" opacity="0.6"/>
-                    <path d="M0,50 C150,10 300,90 450,50 C600,10 750,90 900,50 C1050,10 1200,90 1200,50" fill="none" stroke="white" stroke-width="1" opacity="0.3"/>
-                </svg>
-            </div>
-        </div>
+<!-- ========== LOADING SCREEN ========== -->
+<div class="loader-screen">
+  <div class="flex flex-col items-center">
+    <div class="loader-logo">
+      <img src="images/logo.png" alt="Spicco Studio" class="h-20 w-auto"/>
     </div>
-    <!-- Logo content -->
-    <div class="relative flex flex-col items-center z-10">
-        <h1 class="font-headline text-5xl md:text-7xl font-semibold text-white tracking-wider loader-title">
-            NEOS
-        </h1>
-        <div class="mt-6 h-[1px] bg-white/20 w-48 overflow-hidden relative">
-            <div class="absolute inset-0 bg-secondary w-full h-full loader-bar-inner"></div>
-        </div>
-        <span class="mt-4 text-secondary text-xs tracking-[0.3em] uppercase loader-subtitle">
-            Advisors Ltd.
-        </span>
+    <h1 class="loader-title font-headline text-3xl md:text-5xl font-black tracking-tighter text-[#E9E1DC] mt-6">
+      SPICCO STUDIO
+    </h1>
+    <div class="loader-bar-track w-48 h-[1px] bg-white/10 overflow-hidden relative mt-6">
+      <div class="loader-bar-inner absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-[#C8922A] to-transparent"></div>
     </div>
+    <span class="loader-tagline font-headline text-[10px] uppercase tracking-[0.3em] text-[#C8922A] mt-4">
+      Forged for the Bold
+    </span>
+  </div>
 </div>
 
-<!-- ==================== TOP NAV BAR ==================== -->
-<nav class="fixed top-0 w-full z-50 glass-nav border-t-2 border-t-secondary border-b border-b-secondary/20">
-    <div class="flex justify-between items-center w-full px-8 py-4 max-w-7xl mx-auto">
-        <a href="#hero"><img src="images/logo-header.png" alt="Neos Advisors" class="h-14 w-auto"/></a>
-        <div class="hidden md:flex items-center gap-6 ml-auto mr-6">
-            <a class="text-primary-container opacity-80 font-body font-medium text-sm hover:text-[#e0b04f] transition-colors duration-300" href="#about">About</a>
-            <a class="text-primary-container opacity-80 font-body font-medium text-sm hover:text-[#e0b04f] transition-colors duration-300" href="#services">Services</a>
-            <a class="text-primary-container opacity-80 font-body font-medium text-sm hover:text-[#e0b04f] transition-colors duration-300" href="#results">Results</a>
-            <a class="text-primary-container opacity-80 font-body font-medium text-sm hover:text-[#e0b04f] transition-colors duration-300" href="#team">Team</a>
-            <a class="text-primary-container opacity-80 font-body font-medium text-sm hover:text-[#e0b04f] transition-colors duration-300" href="#careers">Careers</a>
-        </div>
-        <a href="#careers" class="bg-secondary text-on-secondary px-6 py-2.5 rounded-lg font-headline font-bold text-sm tracking-wide hover:opacity-90 transition-opacity">
-            Contact Us
-        </a>
+<!-- ========== NAVBAR ========== -->
+<nav id="mainNav" class="fixed top-0 w-full z-50 bg-[#0D0A08]/80 backdrop-blur-xl shadow-[0_20px_50px_rgba(13,10,8,0.5)]">
+  <div class="flex justify-between items-center w-full px-8 py-6 max-w-none">
+    <div class="flex items-center gap-4">
+      <img alt="SPICCO STUDIO" class="h-16 w-auto" src="images/logo.png"/>
+      <span class="text-2xl font-black tracking-tighter text-[#E9E1DC] font-headline">SPICCO STUDIO</span>
     </div>
+    <div class="hidden md:flex items-center gap-10">
+      <a class="font-headline uppercase tracking-[0.15em] text-sm font-bold text-[#E9E1DC] hover:text-[#F8BC51] transition-colors duration-300" href="#services">Services</a>
+      <a class="font-headline uppercase tracking-[0.15em] text-sm font-bold text-[#E9E1DC] hover:text-[#F8BC51] transition-colors duration-300" href="#portfolio">Portfolio</a>
+      <a class="font-headline uppercase tracking-[0.15em] text-sm font-bold text-[#E9E1DC] hover:text-[#F8BC51] transition-colors duration-300" href="#about">About</a>
+      <a class="font-headline uppercase tracking-[0.15em] text-sm font-bold text-[#E9E1DC] hover:text-[#F8BC51] transition-colors duration-300" href="#contact">Contact</a>
+    </div>
+    <a href="#contact" class="bronze-gradient font-headline uppercase tracking-[0.15em] text-xs font-bold px-8 py-3 rounded-none text-on-primary-fixed hover:opacity-80 transition-all duration-500 no-underline">
+      START PROJECT
+    </a>
+  </div>
 </nav>
 
-<!-- ==================== HERO SECTION ==================== -->
-<section id="hero" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
-    <div class="absolute inset-0 z-0">
-        <img class="w-full h-full object-cover" alt="expansive aerial view of the canadian boreal forest and rocky mountains under a crisp blue sky with misty valleys" src="images/hero-image.png"/>
-        <div class="absolute inset-0 hero-gradient opacity-85"></div>
+<!-- ========== HERO SECTION ========== -->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+  <div class="absolute inset-0 z-0 pointer-events-none opacity-20">
+    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px]"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-on-secondary/10 rounded-full blur-[150px]"></div>
+  </div>
+  <div class="relative z-10 max-w-7xl mx-auto px-8 text-center">
+    <h1 class="font-headline text-5xl md:text-8xl font-bold tracking-tighter leading-tight mb-8">
+      <span class="block">We Build Brands That</span>
+      <span class="bronze-text-gradient block">Demand Attention.</span>
+    </h1>
+    <p class="text-xl md:text-2xl text-on-surface-variant max-w-2xl mx-auto mb-12 font-light">
+      Helping your business rise above the noise with rugged luxury and industrial-grade precision.
+    </p>
+    <div class="flex flex-col md:flex-row items-center justify-center gap-6">
+      <a class="bronze-gradient w-full md:w-auto px-10 py-5 font-headline font-bold uppercase tracking-widest text-on-primary-fixed hover:scale-105 transition-transform duration-500 no-underline" href="#portfolio">
+        See Some of Our Work
+      </a>
+      <a class="border border-outline-variant/30 w-full md:w-auto px-10 py-5 font-headline font-bold uppercase tracking-widest text-on-surface hover:border-primary transition-colors duration-500 no-underline" href="#contact">
+        Get a Quote
+      </a>
     </div>
-    <div class="relative z-10 max-w-7xl mx-auto px-8 w-full">
-        <div class="max-w-5xl">
-            <span class="inline-block text-secondary font-headline font-extrabold tracking-[0.2em] text-xs uppercase mb-6">Strategic Construction Advisory</span>
-            <h1 class="text-white font-headline text-6xl md:text-8xl lg:text-[10rem] font-medium tracking-tight leading-[0.9] mb-4">
-                Partner Early.
-            </h1>
-            <h1 class="font-headline text-6xl md:text-8xl lg:text-[10rem] font-medium tracking-tight leading-[0.9] mb-8 italic">
-                <span class="text-gradient">Build Better.</span>
-            </h1>
-            <p class="text-on-primary-container text-lg md:text-xl font-body leading-relaxed mb-10 max-w-2xl">
-                Empowering construction businesses and Indigenous Nations to achieve more through strategic planning and efficient execution.
-            </p>
-            <div class="flex flex-wrap gap-4">
-                <a href="mailto:info@neosadvisors.ca" class="bg-secondary text-on-secondary px-8 py-4 rounded-lg font-headline font-bold tracking-wide hover:opacity-90 transition-opacity shadow-lg">
-                    Start a Conversation
-                </a>
-                <a href="#services" class="border border-outline-variant border-opacity-20 text-white px-8 py-4 rounded-lg font-headline font-bold tracking-wide hover:bg-white/5 transition-all">
-                    Explore Services
-                </a>
-            </div>
-        </div>
-    </div>
+  </div>
+  <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4">
+    <span class="font-headline text-[10px] uppercase tracking-[0.3em] text-primary/40">Scroll to Explore</span>
+    <div class="w-[1px] h-16 blueprint-line"></div>
+  </div>
 </section>
 
-<!-- ==================== ABOUT SECTION ==================== -->
-<section id="about" class="py-28 bg-surface">
-    <div class="max-w-7xl mx-auto px-8">
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-16 items-start">
-            <div class="md:col-span-5">
-                <div class="relative">
-                    <img class="w-full h-[500px] object-cover grayscale brightness-90 rounded-lg" alt="close up of an engineer's weathered blueprints on a wooden table with a hard hat in soft focus background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6BnF0xUuqiti9Qb45tPrtsvIUzvN4F3arF5NlQt0sN3TcOfxfwOG2-q80-O3YNw5H4PKzuoEHzPrYHBOZddpa0qYthEyNoO2g9TXwPaQM9OrhwDN6DE9AmBbUsKLM4Vl12fvCxaaFymk5RsKOFpasOEQUJp9o5p7VbuUz7Z2k9eR_JaMCIPGi9IXgMqCcPmoES-yufjqBfDhX0VWhDh9s68Y5KPSRL31vGShH54VLsWqRlDUiqqIafOCSGAbSSVEtCWj_d3ENK68H"/>
-                    <div class="absolute -bottom-8 -right-8 w-48 h-48 bg-primary-container p-8 flex items-center justify-center">
-                        <img src="images/logo.png" alt="Neos Advisors Logo" class="max-w-full max-h-full object-contain"/>
-                    </div>
-                </div>
-            </div>
-            <div class="md:col-span-7 flex flex-col justify-center h-full pt-10">
-                <span class="text-secondary font-headline font-bold tracking-[0.1em] text-sm uppercase mb-4">The Neos Approach</span>
-                <h2 class="text-primary font-headline text-4xl md:text-5xl font-extrabold tracking-tight mb-8">Built on Field Credibility</h2>
-                <p class="text-on-surface-variant text-lg leading-relaxed mb-6">
-                    Led by professional engineers with direct project experience on major Canadian pipelines. We provide strategic advisory from a field-first perspective, not just a boardroom.
-                </p>
-                <p class="text-on-surface-variant text-lg leading-relaxed mb-10">
-                    Our specialized focus bridges the gap between technical execution and community partnership. We emphasize Indigenous-led partnership capability and full-project lifecycle support.
-                </p>
-                <div class="flex gap-12">
-                    <div>
-                        <span class="block text-primary font-headline font-extrabold text-2xl">20+</span>
-                        <span class="text-on-surface-variant text-sm">Years Experience</span>
-                    </div>
-                    <div>
-                        <span class="block text-primary font-headline font-extrabold text-2xl">$1B+</span>
-                        <span class="text-on-surface-variant text-sm">Managed Projects</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!-- ========== SERVICES SECTION ========== -->
+<section class="py-32 bg-surface-container-low" id="services">
+  <div class="max-w-7xl mx-auto px-8">
+    <div class="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
+      <div>
+        <span class="font-headline text-primary text-sm uppercase tracking-[0.2em] font-bold mb-4 block">Capabilities</span>
+        <h2 class="font-headline text-4xl md:text-6xl font-bold leading-none">What We Build</h2>
+      </div>
+      <div class="w-24 h-[1px] bg-outline-variant/30 hidden md:block mb-4"></div>
     </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1">
+      <!-- Service Card 1 -->
+      <div class="service-card group bg-surface p-12 hover:bg-surface-container border border-outline-variant/5 relative overflow-hidden">
+        <div class="mb-8">
+          <span class="material-symbols-outlined text-4xl text-primary" style="font-variation-settings: 'FILL' 1;">language</span>
+        </div>
+        <h3 class="font-headline text-2xl font-bold mb-4 uppercase tracking-wide">Website Design</h3>
+        <p class="text-on-surface-variant leading-relaxed">High-performance digital experiences that convert browsers into brand loyalists.</p>
+        <div class="absolute bottom-0 left-0 w-full h-1 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+      </div>
+      <!-- Service Card 2 -->
+      <div class="service-card group bg-surface p-12 hover:bg-surface-container border border-outline-variant/5 relative overflow-hidden">
+        <div class="mb-8">
+          <span class="material-symbols-outlined text-4xl text-primary" style="font-variation-settings: 'FILL' 1;">pentagon</span>
+        </div>
+        <h3 class="font-headline text-2xl font-bold mb-4 uppercase tracking-wide">Logo Design</h3>
+        <p class="text-on-surface-variant leading-relaxed">Visual anchors forged to represent the soul and strength of your enterprise.</p>
+        <div class="absolute bottom-0 left-0 w-full h-1 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+      </div>
+      <!-- Service Card 3 -->
+      <div class="service-card group bg-surface p-12 hover:bg-surface-container border border-outline-variant/5 relative overflow-hidden">
+        <div class="mb-8">
+          <span class="material-symbols-outlined text-4xl text-primary" style="font-variation-settings: 'FILL' 1;">description</span>
+        </div>
+        <h3 class="font-headline text-2xl font-bold mb-4 uppercase tracking-wide">Company Profile</h3>
+        <p class="text-on-surface-variant leading-relaxed">Editorial-grade documents that tell your story with authority and prestige.</p>
+        <div class="absolute bottom-0 left-0 w-full h-1 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+      </div>
+      <!-- Service Card 4 -->
+      <div class="service-card group bg-surface p-12 hover:bg-surface-container border border-outline-variant/5 relative overflow-hidden">
+        <div class="mb-8">
+          <span class="material-symbols-outlined text-4xl text-primary" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+        </div>
+        <h3 class="font-headline text-2xl font-bold mb-4 uppercase tracking-wide">Company Brochure</h3>
+        <p class="text-on-surface-variant leading-relaxed">Tactile marketing materials designed for maximum impact and retention.</p>
+        <div class="absolute bottom-0 left-0 w-full h-1 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+      </div>
+      <!-- Service Card 5 -->
+      <div class="service-card group bg-surface p-12 hover:bg-surface-container border border-outline-variant/5 relative overflow-hidden">
+        <div class="mb-8">
+          <span class="material-symbols-outlined text-4xl text-primary" style="font-variation-settings: 'FILL' 1;">contact_mail</span>
+        </div>
+        <h3 class="font-headline text-2xl font-bold mb-4 uppercase tracking-wide">Business Cards</h3>
+        <p class="text-on-surface-variant leading-relaxed">Premium networking tools that leave a lasting impression of quality.</p>
+        <div class="absolute bottom-0 left-0 w-full h-1 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+      </div>
+      <!-- Service Card 6 -->
+      <div class="service-card group bg-surface p-12 hover:bg-surface-container border border-outline-variant/5 relative overflow-hidden">
+        <div class="mb-8">
+          <span class="material-symbols-outlined text-4xl text-primary" style="font-variation-settings: 'FILL' 1;">alternate_email</span>
+        </div>
+        <h3 class="font-headline text-2xl font-bold mb-4 uppercase tracking-wide">Email Signatures</h3>
+        <p class="text-on-surface-variant leading-relaxed">Consistent, professional digital branding for every correspondence.</p>
+        <div class="absolute bottom-0 left-0 w-full h-1 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+      </div>
+    </div>
+  </div>
 </section>
 
+<!-- ========== PORTFOLIO / ROLODEX SECTION ========== -->
+<section class="py-32 bg-background" id="portfolio">
+  <div class="text-center px-8 mb-8">
+    <span class="font-headline text-primary text-sm uppercase tracking-[0.2em] font-bold mb-4 block">The Forge</span>
+    <h2 class="font-headline text-4xl md:text-6xl font-bold uppercase">Some of Our Work</h2>
+    <p class="text-on-surface-variant text-lg mt-6 max-w-xl mx-auto font-light">A few of the brands we've helped rise above the noise.</p>
+  </div>
 
-<!-- ==================== TRUSTED BY (Scrolling Logos) ==================== -->
-<section class="py-16 bg-primary-container border-y border-white/5 overflow-hidden relative">
-    <!-- Gradient Masks -->
-    <div class="absolute top-0 left-0 w-20 md:w-48 h-full bg-gradient-to-r from-primary-container via-primary-container/95 to-transparent z-20 pointer-events-none"></div>
-    <div class="absolute top-0 right-0 w-20 md:w-48 h-full bg-gradient-to-l from-primary-container via-primary-container/95 to-transparent z-20 pointer-events-none"></div>
+  <!-- Desktop: Auto-spinning 3D Rolodex -->
+  <div class="rolodex-wrapper" id="rolodexWrapper">
+    <div class="rolodex-scene" id="rolodexScene">
+      <div class="rolodex-wheel" id="rolodexWheel">
 
-    <div class="text-center mb-10 relative z-10">
-        <span class="text-white/30 tracking-[0.3em] text-xs font-headline font-bold uppercase">Trusted By</span>
-    </div>
-
-    <div class="flex relative z-10 overflow-hidden">
-        <div class="scroll-track flex gap-12 md:gap-24 items-center whitespace-nowrap px-4">
-            <!-- Set 1 -->
-            <div class="flex items-center justify-center p-4 md:p-6 rounded-xl h-24 w-48 md:h-32 md:w-64 bg-white hover:bg-white/90 transition-all duration-300 shrink-0">
-                <img src="images/duzcho.png" alt="Duz Cho Logo" class="max-h-full max-w-full object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"/>
+        <div class="rolodex-card" data-index="0" data-url="https://thebakingbroker.ca">
+          <div class="browser-frame">
+            <div class="browser-chrome">
+              <div class="browser-dot red"></div>
+              <div class="browser-dot yellow"></div>
+              <div class="browser-dot green"></div>
+              <span class="browser-url">thebakingbroker.ca</span>
             </div>
-            <div class="flex items-center justify-center p-4 md:p-6 rounded-xl h-24 w-48 md:h-32 md:w-64 bg-white hover:bg-white/90 transition-all duration-300 shrink-0">
-                <img src="images/spirit-valley.png" alt="Spirit Valley Development LP Logo" class="max-h-full max-w-full object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"/>
+            <div class="browser-content">
+              <img src="images/portfolio-thebakingbroker.png" alt="The Baking Broker website"/>
+              <div class="view-site-overlay">
+                <a href="https://thebakingbroker.ca" target="_blank" rel="noopener" class="view-site-btn">View Site &rarr;</a>
+              </div>
             </div>
-            <div class="flex items-center justify-center p-4 md:p-6 rounded-xl h-24 w-48 md:h-32 md:w-64 bg-white hover:bg-white/90 transition-all duration-300 shrink-0">
-                <img src="images/simpcw.png" alt="Simpcw Resources Group Logo" class="max-h-full max-w-full object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"/>
-            </div>
-            <div class="flex items-center justify-center p-4 md:p-6 rounded-xl h-24 w-48 md:h-32 md:w-64 bg-white hover:bg-white/90 transition-all duration-300 shrink-0">
-                <img src="images/gnb.png" alt="Great Northern Bridgeworks Logo" class="max-h-full max-w-full object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"/>
-            </div>
-            <div class="flex items-center justify-center p-4 md:p-6 rounded-xl h-24 w-48 md:h-32 md:w-64 bg-white hover:bg-white/90 transition-all duration-300 shrink-0">
-                <img src="images/secwepemc.png" alt="Secwepemcul'ecw Restoration and Stewardship Society Logo" class="max-h-full max-w-full object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"/>
-            </div>
-            <div class="flex items-center justify-center p-4 md:p-6 rounded-xl h-24 w-48 md:h-32 md:w-64 bg-white hover:bg-white/90 transition-all duration-300 shrink-0">
-                <img src="images/ddr.png" alt="DDR Logo" class="max-h-full max-w-full object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"/>
-            </div>
-            <!-- Set 2 (duplicate for seamless loop) -->
-            <div class="flex items-center justify-center p-4 md:p-6 rounded-xl h-24 w-48 md:h-32 md:w-64 bg-white hover:bg-white/90 transition-all duration-300 shrink-0">
-                <img src="images/duzcho.png" alt="Duz Cho Logo" class="max-h-full max-w-full object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"/>
-            </div>
-            <div class="flex items-center justify-center p-4 md:p-6 rounded-xl h-24 w-48 md:h-32 md:w-64 bg-white hover:bg-white/90 transition-all duration-300 shrink-0">
-                <img src="images/spirit-valley.png" alt="Spirit Valley Development LP Logo" class="max-h-full max-w-full object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"/>
-            </div>
-            <div class="flex items-center justify-center p-4 md:p-6 rounded-xl h-24 w-48 md:h-32 md:w-64 bg-white hover:bg-white/90 transition-all duration-300 shrink-0">
-                <img src="images/simpcw.png" alt="Simpcw Resources Group Logo" class="max-h-full max-w-full object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"/>
-            </div>
-            <div class="flex items-center justify-center p-4 md:p-6 rounded-xl h-24 w-48 md:h-32 md:w-64 bg-white hover:bg-white/90 transition-all duration-300 shrink-0">
-                <img src="images/gnb.png" alt="Great Northern Bridgeworks Logo" class="max-h-full max-w-full object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"/>
-            </div>
-            <div class="flex items-center justify-center p-4 md:p-6 rounded-xl h-24 w-48 md:h-32 md:w-64 bg-white hover:bg-white/90 transition-all duration-300 shrink-0">
-                <img src="images/secwepemc.png" alt="Secwepemcul'ecw Restoration and Stewardship Society Logo" class="max-h-full max-w-full object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"/>
-            </div>
-            <div class="flex items-center justify-center p-4 md:p-6 rounded-xl h-24 w-48 md:h-32 md:w-64 bg-white hover:bg-white/90 transition-all duration-300 shrink-0">
-                <img src="images/ddr.png" alt="DDR Logo" class="max-h-full max-w-full object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"/>
-            </div>
+          </div>
+          <div class="card-info">
+            <h4>The Baking Broker</h4>
+            <p>Mortgage Broker</p>
+          </div>
         </div>
+
+        <div class="rolodex-card" data-index="1" data-url="https://spiritvalley.ca">
+          <div class="browser-frame">
+            <div class="browser-chrome">
+              <div class="browser-dot red"></div>
+              <div class="browser-dot yellow"></div>
+              <div class="browser-dot green"></div>
+              <span class="browser-url">spiritvalley.ca</span>
+            </div>
+            <div class="browser-content">
+              <img src="images/portfolio-spiritvalley.png" alt="Spirit Valley website"/>
+              <div class="view-site-overlay">
+                <a href="https://spiritvalley.ca" target="_blank" rel="noopener" class="view-site-btn">View Site &rarr;</a>
+              </div>
+            </div>
+          </div>
+          <div class="card-info">
+            <h4>Spirit Valley</h4>
+            <p>Indigenous Business</p>
+          </div>
+        </div>
+
+        <div class="rolodex-card" data-index="2" data-url="https://defenderdr.com">
+          <div class="browser-frame">
+            <div class="browser-chrome">
+              <div class="browser-dot red"></div>
+              <div class="browser-dot yellow"></div>
+              <div class="browser-dot green"></div>
+              <span class="browser-url">defenderdr.com</span>
+            </div>
+            <div class="browser-content">
+              <img src="images/portfolio-defenderdr.png" alt="Defender Construction Products website"/>
+              <div class="view-site-overlay">
+                <a href="https://defenderdr.com" target="_blank" rel="noopener" class="view-site-btn">View Site &rarr;</a>
+              </div>
+            </div>
+          </div>
+          <div class="card-info">
+            <h4>Defender Construction Products</h4>
+            <p>Construction Products</p>
+          </div>
+        </div>
+
+        <div class="rolodex-card" data-index="3" data-url="https://neosadvisors.ca">
+          <div class="browser-frame">
+            <div class="browser-chrome">
+              <div class="browser-dot red"></div>
+              <div class="browser-dot yellow"></div>
+              <div class="browser-dot green"></div>
+              <span class="browser-url">neosadvisors.ca</span>
+            </div>
+            <div class="browser-content">
+              <img src="images/portfolio-neosadvisors.png" alt="Neos Advisors website"/>
+              <div class="view-site-overlay">
+                <a href="https://neosadvisors.ca" target="_blank" rel="noopener" class="view-site-btn">View Site &rarr;</a>
+              </div>
+            </div>
+          </div>
+          <div class="card-info">
+            <h4>Neos Advisors</h4>
+            <p>Construction Advisory</p>
+          </div>
+        </div>
+
+      </div>
     </div>
+    <div class="rolodex-dots" id="rolodexDots">
+      <div class="rolodex-dot active" data-dot="0"></div>
+      <div class="rolodex-dot" data-dot="1"></div>
+      <div class="rolodex-dot" data-dot="2"></div>
+      <div class="rolodex-dot" data-dot="3"></div>
+    </div>
+  </div>
+
+  <!-- Mobile: Vertical card stack -->
+  <div class="mobile-card-stack">
+    <div class="flex flex-col items-center">
+      <div class="browser-frame">
+        <div class="browser-chrome"><div class="browser-dot red"></div><div class="browser-dot yellow"></div><div class="browser-dot green"></div><span class="browser-url">thebakingbroker.ca</span></div>
+        <div class="browser-content">
+          <img src="images/portfolio-thebakingbroker.png" alt="The Baking Broker website"/>
+          <div class="view-site-overlay" style="opacity:1;pointer-events:auto;"><a href="https://thebakingbroker.ca" target="_blank" rel="noopener" class="view-site-btn">View Site &rarr;</a></div>
+        </div>
+      </div>
+      <div class="card-info mt-4"><h4>The Baking Broker</h4><p>Mortgage Broker</p></div>
+    </div>
+    <div class="flex flex-col items-center">
+      <div class="browser-frame">
+        <div class="browser-chrome"><div class="browser-dot red"></div><div class="browser-dot yellow"></div><div class="browser-dot green"></div><span class="browser-url">spiritvalley.ca</span></div>
+        <div class="browser-content">
+          <img src="images/portfolio-spiritvalley.png" alt="Spirit Valley website"/>
+          <div class="view-site-overlay" style="opacity:1;pointer-events:auto;"><a href="https://spiritvalley.ca" target="_blank" rel="noopener" class="view-site-btn">View Site &rarr;</a></div>
+        </div>
+      </div>
+      <div class="card-info mt-4"><h4>Spirit Valley</h4><p>Indigenous Business</p></div>
+    </div>
+    <div class="flex flex-col items-center">
+      <div class="browser-frame">
+        <div class="browser-chrome"><div class="browser-dot red"></div><div class="browser-dot yellow"></div><div class="browser-dot green"></div><span class="browser-url">defenderdr.com</span></div>
+        <div class="browser-content">
+          <img src="images/portfolio-defenderdr.png" alt="Defender Construction Products website"/>
+          <div class="view-site-overlay" style="opacity:1;pointer-events:auto;"><a href="https://defenderdr.com" target="_blank" rel="noopener" class="view-site-btn">View Site &rarr;</a></div>
+        </div>
+      </div>
+      <div class="card-info mt-4"><h4>Defender Construction Products</h4><p>Construction Products</p></div>
+    </div>
+    <div class="flex flex-col items-center">
+      <div class="browser-frame">
+        <div class="browser-chrome"><div class="browser-dot red"></div><div class="browser-dot yellow"></div><div class="browser-dot green"></div><span class="browser-url">neosadvisors.ca</span></div>
+        <div class="browser-content">
+          <img src="images/portfolio-neosadvisors.png" alt="Neos Advisors website"/>
+          <div class="view-site-overlay" style="opacity:1;pointer-events:auto;"><a href="https://neosadvisors.ca" target="_blank" rel="noopener" class="view-site-btn">View Site &rarr;</a></div>
+        </div>
+      </div>
+      <div class="card-info mt-4"><h4>Neos Advisors</h4><p>Construction Advisory</p></div>
+    </div>
+  </div>
 </section>
 
-<!-- ==================== SERVICES / CORE COMPETENCIES ==================== -->
-<section id="services" class="py-28 bg-surface-container-low">
-    <div class="max-w-7xl mx-auto px-8">
-        <div class="text-center mb-20">
-            <span class="text-secondary font-headline font-bold tracking-[0.1em] text-sm uppercase mb-4 block">Core Competencies</span>
-            <h2 class="text-primary font-headline text-4xl md:text-5xl font-extrabold tracking-tight">Technical &amp; Strategic Divisions</h2>
+<!-- ========== ABOUT SECTION ========== -->
+<section class="py-32 relative overflow-hidden" id="about">
+  <div class="absolute right-0 top-0 w-1/2 h-full opacity-5 pointer-events-none">
+    <span class="font-headline text-[25vw] font-black tracking-tighter text-on-background absolute -right-20 top-0 leading-none select-none">STUDIO</span>
+  </div>
+  <div class="max-w-7xl mx-auto px-8 relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+      <div class="space-y-10">
+        <span class="font-headline text-primary text-sm uppercase tracking-[0.2em] font-bold block">Our Ethos</span>
+        <h2 class="font-headline text-4xl md:text-6xl font-bold leading-tight">
+          We don't do generic. Every brand we build is <span class="bronze-text-gradient">crafted</span> around the people behind it.
+        </h2>
+        <div class="w-32 h-1 bronze-gradient"></div>
+      </div>
+      <div class="space-y-12">
+        <div class="flex gap-6">
+          <div class="flex-shrink-0 w-14 h-14 bg-surface-container flex items-center justify-center">
+            <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">architecture</span>
+          </div>
+          <div>
+            <h4 class="font-headline text-xl font-bold uppercase mb-2">Industry-Focused</h4>
+            <p class="text-on-surface-variant leading-relaxed">Specialized in construction and industrial sectors where grit meets growth.</p>
+          </div>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-
-            <!-- Division 1: A&CP -->
-            <div class="group bg-surface-container-lowest p-12 relative overflow-hidden transition-all duration-500 hover:bg-white hover:translate-y-[-4px]">
-                <div class="relative z-10">
-                    <span class="material-symbols-outlined text-secondary text-5xl mb-8">architecture</span>
-                    <h3 class="text-primary font-headline text-2xl font-bold mb-6">Advisement &amp; Capacity Planning</h3>
-                    <p class="text-on-surface-variant leading-relaxed mb-8">
-                        Strategic construction advisory, project controls, and resource planning specifically tailored for linear infrastructure and large-scale industrial builds.
-                    </p>
-                    <ul class="space-y-4 text-sm text-on-surface mb-8">
-                        <li class="flex items-center gap-3">
-                            <span class="w-1.5 h-1.5 bg-secondary rounded-full"></span> Project Lifecycle Analysis
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <span class="w-1.5 h-1.5 bg-secondary rounded-full"></span> Risk Mitigation Strategies
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <span class="w-1.5 h-1.5 bg-secondary rounded-full"></span> Resource Scheduling &amp; Optimization
-                        </li>
-                    </ul>
-                </div>
-                <div class="absolute bottom-0 left-0 h-1 bg-secondary w-0 group-hover:w-full transition-all duration-700"></div>
-            </div>
-
-            <!-- Division 2: IE&BD -->
-            <div class="group bg-surface-container-lowest p-12 relative overflow-hidden transition-all duration-500 hover:bg-white hover:translate-y-[-4px]">
-                <div class="relative z-10">
-                    <span class="material-symbols-outlined text-secondary text-5xl mb-8">handshake</span>
-                    <h3 class="text-primary font-headline text-2xl font-bold mb-6">Indigenous Engagement &amp; Business Development</h3>
-                    <p class="text-on-surface-variant leading-relaxed mb-8">
-                        Benefit agreement strategy, project participation, and lasting partnership development for Indigenous Nations and industry stakeholders.
-                    </p>
-                    <ul class="space-y-4 text-sm text-on-surface mb-8">
-                        <li class="flex items-center gap-3">
-                            <span class="w-1.5 h-1.5 bg-secondary rounded-full"></span> Meaningful Consultation Support
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <span class="w-1.5 h-1.5 bg-secondary rounded-full"></span> Business Capacity Building
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <span class="w-1.5 h-1.5 bg-secondary rounded-full"></span> Shared Value Agreement Logic
-                        </li>
-                    </ul>
-                </div>
-                <div class="absolute bottom-0 left-0 h-1 bg-secondary w-0 group-hover:w-full transition-all duration-700"></div>
-            </div>
-
-            <!-- Division 3: Website & Branding Development (NEW) -->
-            <div class="group bg-surface-container-lowest p-12 relative overflow-hidden transition-all duration-500 hover:bg-white hover:translate-y-[-4px]">
-                <div class="relative z-10">
-                    <span class="material-symbols-outlined text-secondary text-5xl mb-8">brush</span>
-                    <h3 class="text-primary font-headline text-2xl font-bold mb-6">Website &amp; Branding Development</h3>
-                    <p class="text-on-surface-variant leading-relaxed mb-8">
-                        Establishing credibility starts with how you present yourself. We help businesses and Indigenous enterprises build professional identities that command respect in the marketplace and win confidence from partners, clients, and stakeholders.
-                    </p>
-                    <ul class="space-y-4 text-sm text-on-surface mb-8">
-                        <li class="flex items-center gap-3">
-                            <span class="w-1.5 h-1.5 bg-secondary rounded-full"></span> Professional Website Design &amp; Development
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <span class="w-1.5 h-1.5 bg-secondary rounded-full"></span> Logo &amp; Visual Identity Creation
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <span class="w-1.5 h-1.5 bg-secondary rounded-full"></span> Brochures, Company Profiles &amp; Presentation Materials
-                        </li>
-                    </ul>
-                </div>
-                <div class="absolute bottom-0 left-0 h-1 bg-secondary w-0 group-hover:w-full transition-all duration-700"></div>
-            </div>
-
+        <div class="flex gap-6">
+          <div class="flex-shrink-0 w-14 h-14 bg-surface-container flex items-center justify-center">
+            <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">location_on</span>
+          </div>
+          <div>
+            <h4 class="font-headline text-xl font-bold uppercase mb-2">Built in Alberta</h4>
+            <p class="text-on-surface-variant leading-relaxed">Rooted in local values with a global design standard that commands respect.</p>
+          </div>
         </div>
+        <div class="flex gap-6">
+          <div class="flex-shrink-0 w-14 h-14 bg-surface-container flex items-center justify-center">
+            <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">query_stats</span>
+          </div>
+          <div>
+            <h4 class="font-headline text-xl font-bold uppercase mb-2">Results-Driven</h4>
+            <p class="text-on-surface-variant leading-relaxed">Design is a tool for business. We measure success by your brand's authority and market impact.</p>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- ==================== WHY NEOS ==================== -->
-<section class="py-28 bg-surface">
-    <div class="max-w-7xl mx-auto px-8">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
-            <div>
-                <h3 class="text-primary font-headline text-xl font-bold mb-4">Field-First Expertise</h3>
-                <p class="text-on-surface-variant text-sm leading-relaxed">
-                    We don't just consult from afar. Our advisors come from the field, ensuring every strategy is executable and practical under real-world project conditions.
-                </p>
-            </div>
-            <div>
-                <h3 class="text-primary font-headline text-xl font-bold mb-4">Indigenous Partnership Focus</h3>
-                <p class="text-on-surface-variant text-sm leading-relaxed">
-                    Expertise in navigating the complex regulatory and relationship-driven landscape of Indigenous engagement in Western Canada.
-                </p>
-            </div>
-            <div>
-                <h3 class="text-primary font-headline text-xl font-bold mb-4">Led by Professional Engineers</h3>
-                <p class="text-on-surface-variant text-sm leading-relaxed">
-                    All advisement is led or reviewed by our Professional Engineers, maintaining the highest standards of technical integrity and ethical duty.
-                </p>
-            </div>
-        </div>
+<!-- ========== CONTACT SECTION ========== -->
+<section class="py-32 bg-surface-container-lowest" id="contact">
+  <div class="max-w-4xl mx-auto px-8">
+    <div class="text-center mb-20">
+      <span class="font-headline text-primary text-sm uppercase tracking-[0.2em] font-bold mb-4 block">Connection</span>
+      <h2 class="font-headline text-4xl md:text-7xl font-bold uppercase">Let's Build Something.</h2>
     </div>
+    <form action="https://formsubmit.co/your@email.com" method="POST" class="space-y-12">
+      <!-- FormSubmit hidden fields -->
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://spicco.studio/thanks.html">
+      <input type="hidden" name="_subject" value="New Project Inquiry from Spicco Studio">
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div class="relative group">
+          <input name="name" required class="w-full bg-transparent border-b border-outline-variant/30 py-4 px-0 focus:outline-none focus:border-primary transition-colors text-lg placeholder:text-outline/50" placeholder="Name" type="text"/>
+        </div>
+        <div class="relative group">
+          <input name="company" class="w-full bg-transparent border-b border-outline-variant/30 py-4 px-0 focus:outline-none focus:border-primary transition-colors text-lg placeholder:text-outline/50" placeholder="Company" type="text"/>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div class="relative group">
+          <input name="email" required class="w-full bg-transparent border-b border-outline-variant/30 py-4 px-0 focus:outline-none focus:border-primary transition-colors text-lg placeholder:text-outline/50" placeholder="Email Address" type="email"/>
+        </div>
+        <div class="relative group">
+          <select name="service" class="w-full bg-transparent border-b border-outline-variant/30 py-4 px-0 focus:outline-none focus:border-primary transition-colors text-lg text-outline/50 appearance-none">
+            <option value="">Service Needed</option>
+            <option value="web">Web Design</option>
+            <option value="branding">Branding</option>
+            <option value="full">Full Studio Package</option>
+          </select>
+        </div>
+      </div>
+      <div class="relative group">
+        <textarea name="message" required class="w-full bg-transparent border-b border-outline-variant/30 py-4 px-0 focus:outline-none focus:border-primary transition-colors text-lg placeholder:text-outline/50 resize-none" placeholder="Your Message" rows="4"></textarea>
+      </div>
+      <div class="flex justify-center pt-8">
+        <button class="bronze-gradient px-16 py-6 font-headline font-bold uppercase tracking-[0.2em] text-on-primary-fixed hover:scale-105 transition-all duration-500 shadow-[0_20px_50px_rgba(200,146,42,0.2)]" type="submit">
+          Send Brief
+        </button>
+      </div>
+    </form>
+  </div>
 </section>
 
-<!-- ==================== FEATURED RESULTS ==================== -->
-<section id="results" class="py-28 bg-surface-container-low">
-    <div class="max-w-7xl mx-auto px-8">
-        <div class="mb-16">
-            <span class="text-secondary font-headline font-bold tracking-[0.1em] text-sm uppercase block mb-4">Featured Results</span>
-            <h2 class="text-primary font-headline text-4xl md:text-5xl font-extrabold tracking-tight">Delivering Measurable Impact</h2>
-        </div>
-
-        <div class="relative rounded-2xl bg-primary-container overflow-hidden shadow-2xl">
-            <div class="grid lg:grid-cols-2">
-                <div class="relative h-[250px] md:h-[400px] lg:h-auto">
-                    <img src="images/trans-mountain.png" alt="Construction Site - Pipeline" class="absolute inset-0 w-full h-full object-cover"/>
-                    <div class="absolute inset-0 bg-primary-container/20"></div>
-                </div>
-
-                <div class="relative p-8 md:p-16 flex flex-col justify-center">
-                    <!-- Simpcw Logo -->
-                    <div class="absolute top-6 right-6 md:top-10 md:right-10 w-20 md:w-32 opacity-50 hover:opacity-100 transition-opacity duration-500">
-                        <img src="images/simpcw.png" alt="Simpcw Resources Group" class="w-full h-auto object-contain filter brightness-0 invert"/>
-                    </div>
-
-                    <div class="text-secondary tracking-widest text-xs font-headline font-bold uppercase mb-4 mt-8 md:mt-0">Simpcw Resource Group &times; TMEP</div>
-                    <h3 class="text-white font-headline text-2xl md:text-4xl font-extrabold mb-6 md:mb-8">Trans Mountain Expansion Project</h3>
-
-                    <div class="flex flex-wrap gap-8 md:gap-12 mb-8 md:mb-10 border-b border-white/10 pb-8 md:pb-10">
-                        <div>
-                            <div class="text-secondary font-headline text-3xl md:text-5xl font-extrabold mb-1">100&times;</div>
-                            <div class="text-white/60 text-xs md:text-sm">Revenue Growth</div>
-                        </div>
-                        <div>
-                            <div class="text-secondary font-headline text-3xl md:text-5xl font-extrabold mb-1">98%</div>
-                            <div class="text-white/60 text-xs md:text-sm">Tender Success</div>
-                        </div>
-                        <div>
-                            <div class="text-secondary font-headline text-3xl md:text-5xl font-extrabold mb-1">50+</div>
-                            <div class="text-white/60 text-xs md:text-sm">Tenders Supported</div>
-                        </div>
-                    </div>
-
-                    <div class="space-y-6 text-white/80 text-sm md:text-base">
-                        <p><strong class="text-white">The Context:</strong> Simpcw Resource Group sought to maximize economic participation on the Trans Mountain Expansion Project.</p>
-                        <p><strong class="text-white">What Neos Did:</strong> We provided strategic commercial advisory, supported 50+ tenders, and implemented operational management systems to scale rapidly while maintaining quality delivery.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!-- ========== FOOTER ========== -->
+<footer class="bg-[#0D0A08] border-t border-[#504536]/15">
+  <div class="flex flex-col md:flex-row justify-between items-center w-full px-12 py-10 gap-6">
+    <div class="flex items-center gap-3">
+      <span class="text-xl font-bold text-[#E9E1DC] font-headline tracking-tighter">SPICCO STUDIO</span>
     </div>
-</section>
-
-<!-- ==================== TEAM SECTION ==================== -->
-<section id="team" class="py-28 bg-surface">
-    <div class="max-w-7xl mx-auto px-8">
-        <div class="text-center mb-20">
-            <span class="text-secondary font-headline font-bold tracking-[0.1em] text-sm uppercase mb-4 block">Executive Leadership</span>
-            <h2 class="text-primary font-headline text-4xl md:text-5xl font-extrabold tracking-tight">Meet Our Team</h2>
-        </div>
-
-        <!-- Executive Leadership Cards (photo left, info right) -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-
-            <!-- Stavros Salmas - CEO -->
-            <div class="flex flex-col md:flex-row bg-surface-container-lowest overflow-hidden shadow-[0_40px_60px_rgba(26,28,27,0.04)]">
-                <img src="images/stavros-salmas.jpg" alt="Stavros Salmas" class="w-full md:w-[40%] h-64 md:h-auto object-cover grayscale"/>
-                <div class="p-10 flex flex-col justify-center">
-                    <h4 class="text-primary font-headline text-2xl font-bold mb-1">Stavros Salmas, P.Eng.</h4>
-                    <span class="text-secondary font-headline font-bold text-xs uppercase tracking-widest mb-6">Chief Executive Officer</span>
-                    <p class="text-on-surface-variant text-sm leading-relaxed">
-                        Stavros leads Neos Advisors as CEO, setting the strategic vision, direction, and leads business growth for the firm. He brings extensive industry expertise to help Indigenous Nations and growing businesses across Western Canada achieve sustainable success in the construction sector.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Anthony Del Mastro - COO -->
-            <div class="flex flex-col md:flex-row bg-surface-container-lowest overflow-hidden shadow-[0_40px_60px_rgba(26,28,27,0.04)]">
-                <img src="images/anthony-delmastro.jpeg" alt="Anthony Del Mastro" class="w-full md:w-[40%] h-64 md:h-auto object-cover grayscale"/>
-                <div class="p-10 flex flex-col justify-center">
-                    <h4 class="text-primary font-headline text-2xl font-bold mb-1">Anthony Del Mastro, P.Eng.</h4>
-                    <span class="text-secondary font-headline font-bold text-xs uppercase tracking-widest mb-6">Chief Operations Officer</span>
-                    <p class="text-on-surface-variant text-sm leading-relaxed">
-                        Anthony leads operations at Neos Advisors as COO, driving project delivery to maximize opportunities for clients. With extensive leadership experience across nearly every facet of pipeline and infrastructure projects, he brings a unique ability to create leverage in commercial negotiations and a proven track record of building and growing businesses sustainably.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Christos Salmas - CFO -->
-            <div class="flex flex-col md:flex-row bg-surface-container-lowest overflow-hidden shadow-[0_40px_60px_rgba(26,28,27,0.04)]">
-                <img src="images/christos-salmas.jpg" alt="Christos Salmas" class="w-full md:w-[40%] h-64 md:h-auto object-cover grayscale"/>
-                <div class="p-10 flex flex-col justify-center">
-                    <h4 class="text-primary font-headline text-2xl font-bold mb-1">Christos Salmas, P.Eng.</h4>
-                    <span class="text-secondary font-headline font-bold text-xs uppercase tracking-widest mb-6">Chief Financial Officer</span>
-                    <p class="text-on-surface-variant text-sm leading-relaxed">
-                        Chris oversees financial operations at Neos Advisors, ensuring clients receive sound guidance to navigate complex projects. He's committed to delivering measurable results for construction businesses and Indigenous partners across Western Canada.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Management Team Divider -->
-        <div class="flex items-center justify-center gap-4 mb-12">
-            <div class="h-[1px] w-12 md:w-24 bg-on-surface/10"></div>
-            <span class="text-on-surface/40 uppercase text-xs tracking-widest font-headline font-bold">Management Team</span>
-            <div class="h-[1px] w-12 md:w-24 bg-on-surface/10"></div>
-        </div>
-
-        <!-- Taylor McLeod -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div class="flex flex-col md:flex-row bg-surface-container-lowest overflow-hidden shadow-[0_40px_60px_rgba(26,28,27,0.04)]">
-                <img src="images/taylor-mcleod.jpeg" alt="Taylor McLeod" class="w-full md:w-[40%] h-64 md:h-auto object-cover object-top grayscale"/>
-                <div class="p-10 flex flex-col justify-center">
-                    <h4 class="text-primary font-headline text-2xl font-bold mb-1">Taylor McLeod</h4>
-                    <span class="text-secondary font-headline font-bold text-xs uppercase tracking-widest mb-6">Indigenous Engagement Manager</span>
-                    <p class="text-on-surface-variant text-sm leading-relaxed">
-                        Taylor leads Indigenous engagement at Neos Advisors, with a background in building partnerships between Nations and major project proponents. She's passionate about creating meaningful opportunities that benefit both industry and Indigenous communities.
-                    </p>
-                </div>
-            </div>
-        </div>
+    <p class="font-body text-sm tracking-wide text-[#E9E1DC]/60 italic">
+      FORGED FOR THE BOLD.
+    </p>
+    <div class="flex gap-8">
+      <a class="font-body text-sm tracking-wide text-[#E9E1DC]/60 hover:text-[#C8922A] transition-colors duration-300" href="#">Instagram</a>
+      <a class="font-body text-sm tracking-wide text-[#E9E1DC]/60 hover:text-[#C8922A] transition-colors duration-300" href="#">LinkedIn</a>
     </div>
-</section>
-
-<!-- ==================== CAREERS SECTION ==================== -->
-<section id="careers" class="py-28 bg-primary-container relative overflow-hidden">
-    <!-- Background image -->
-    <div class="absolute inset-0 opacity-20">
-        <img src="images/image%202.png" class="w-full h-full object-cover" alt="Helicopter Operations" />
-    </div>
-    <div class="absolute inset-0 bg-gradient-to-r from-primary-container via-primary-container/95 to-primary-container/80"></div>
-    <!-- Flowing lines background -->
-    <div class="absolute inset-0 flex items-center pointer-events-none">
-        <div class="flowing-lines w-full h-full opacity-10">
-            <div class="flowing-lines-track h-full">
-                <svg viewBox="0 0 1200 400" preserveAspectRatio="none" class="h-full" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0,100 C150,40 300,160 450,100 C600,40 750,160 900,100 C1050,40 1200,160 1200,100" fill="none" stroke="#e0b04f" stroke-width="3"/>
-                    <path d="M0,200 C150,140 300,260 450,200 C600,140 750,260 900,200 C1050,140 1200,260 1200,200" fill="none" stroke="#e0b04f" stroke-width="2" opacity="0.6"/>
-                    <path d="M0,300 C150,240 300,360 450,300 C600,240 750,360 900,300 C1050,240 1200,360 1200,300" fill="none" stroke="white" stroke-width="1.5" opacity="0.4"/>
-                    <path d="M0,150 C180,80 360,220 540,150 C720,80 900,220 1080,150 L1200,150" fill="none" stroke="#e0b04f" stroke-width="1.5" opacity="0.4"/>
-                    <path d="M0,250 C200,180 400,320 600,250 C800,180 1000,320 1200,250" fill="none" stroke="white" stroke-width="1" opacity="0.2"/>
-                </svg>
-                <svg viewBox="0 0 1200 400" preserveAspectRatio="none" class="h-full" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0,100 C150,40 300,160 450,100 C600,40 750,160 900,100 C1050,40 1200,160 1200,100" fill="none" stroke="#e0b04f" stroke-width="3"/>
-                    <path d="M0,200 C150,140 300,260 450,200 C600,140 750,260 900,200 C1050,140 1200,260 1200,200" fill="none" stroke="#e0b04f" stroke-width="2" opacity="0.6"/>
-                    <path d="M0,300 C150,240 300,360 450,300 C600,240 750,360 900,300 C1050,240 1200,360 1200,300" fill="none" stroke="white" stroke-width="1.5" opacity="0.4"/>
-                    <path d="M0,150 C180,80 360,220 540,150 C720,80 900,220 1080,150 L1200,150" fill="none" stroke="#e0b04f" stroke-width="1.5" opacity="0.4"/>
-                    <path d="M0,250 C200,180 400,320 600,250 C800,180 1000,320 1200,250" fill="none" stroke="white" stroke-width="1" opacity="0.2"/>
-                </svg>
-            </div>
-        </div>
-    </div>
-
-    <div class="max-w-7xl mx-auto px-8 relative z-10">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
-            <div>
-                <span class="text-secondary font-headline font-bold tracking-[0.2em] text-sm uppercase block mb-4">Careers</span>
-                <h2 class="text-white font-headline text-4xl md:text-5xl font-extrabold tracking-tight mb-6">Build Your Career <br/>with Neos</h2>
-                <p class="text-white/70 text-lg mb-10 leading-relaxed">
-                    Join a team of industry professionals dedicated to delivering exceptional results for our clients. We're always looking for talented individuals who share our commitment to excellence.
-                </p>
-
-                <div class="grid sm:grid-cols-2 gap-4 mb-12">
-                    <div class="flex items-center gap-3 text-white/80">
-                        <span class="material-symbols-outlined text-secondary text-lg">check_circle</span>
-                        <span>Competitive compensation</span>
-                    </div>
-                    <div class="flex items-center gap-3 text-white/80">
-                        <span class="material-symbols-outlined text-secondary text-lg">check_circle</span>
-                        <span>Professional development</span>
-                    </div>
-                    <div class="flex items-center gap-3 text-white/80">
-                        <span class="material-symbols-outlined text-secondary text-lg">check_circle</span>
-                        <span>Diverse project portfolio</span>
-                    </div>
-                    <div class="flex items-center gap-3 text-white/80">
-                        <span class="material-symbols-outlined text-secondary text-lg">check_circle</span>
-                        <span>Collaborative culture</span>
-                    </div>
-                    <div class="flex items-center gap-3 text-white/80">
-                        <span class="material-symbols-outlined text-secondary text-lg">check_circle</span>
-                        <span>Indigenous partnerships</span>
-                    </div>
-                    <div class="flex items-center gap-3 text-white/80">
-                        <span class="material-symbols-outlined text-secondary text-lg">check_circle</span>
-                        <span>Growth opportunities</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Application Form -->
-            <div class="bg-white/5 backdrop-blur-md border border-white/10 p-8 md:p-10 rounded-lg">
-                <h3 class="text-white font-headline text-2xl font-bold mb-2">Apply Now</h3>
-                <p class="text-white/50 text-sm mb-8">Submit your application and join our team.</p>
-
-                <form class="space-y-4">
-                    <div class="grid grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-xs font-headline font-bold uppercase tracking-widest text-secondary mb-2">First Name</label>
-                            <input type="text" class="w-full bg-primary-container/50 border border-white/10 rounded py-3 px-3 text-white placeholder-white/30 focus:border-secondary focus:outline-none transition-colors" placeholder="John" required/>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-headline font-bold uppercase tracking-widest text-secondary mb-2">Last Name</label>
-                            <input type="text" class="w-full bg-primary-container/50 border border-white/10 rounded py-3 px-3 text-white placeholder-white/30 focus:border-secondary focus:outline-none transition-colors" placeholder="Doe" required/>
-                        </div>
-                    </div>
-
-                    <div>
-                        <label class="block text-xs font-headline font-bold uppercase tracking-widest text-secondary mb-2">Email</label>
-                        <input type="email" class="w-full bg-primary-container/50 border border-white/10 rounded py-3 px-3 text-white placeholder-white/30 focus:border-secondary focus:outline-none transition-colors" placeholder="john@example.com" required/>
-                    </div>
-
-                    <div>
-                        <label class="block text-xs font-headline font-bold uppercase tracking-widest text-secondary mb-2">Position</label>
-                        <select class="w-full bg-primary-container/50 border border-white/10 rounded py-3 px-3 text-white focus:border-secondary focus:outline-none transition-colors">
-                            <option>Project Management</option>
-                            <option>Project Controls</option>
-                            <option>Construction Management</option>
-                            <option>Commercial Advisory</option>
-                            <option>Other</option>
-                        </select>
-                    </div>
-
-                    <div>
-                        <label class="block text-xs font-headline font-bold uppercase tracking-widest text-secondary mb-2">Message</label>
-                        <textarea rows="3" class="w-full bg-primary-container/50 border border-white/10 rounded py-3 px-3 text-white placeholder-white/30 focus:border-secondary focus:outline-none transition-colors resize-none" placeholder="Tell us about yourself..." required></textarea>
-                    </div>
-
-                    <button type="submit" class="w-full bg-secondary text-on-secondary py-4 rounded-lg font-headline font-bold tracking-wide hover:opacity-90 transition-opacity mt-4">
-                        Submit Application
-                    </button>
-                </form>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ==================== FOOTER ==================== -->
-<footer class="bg-surface-dim pt-20 pb-10">
-    <div class="max-w-7xl mx-auto px-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-            <!-- Logo & Description -->
-            <div class="lg:col-span-1">
-                <div class="flex items-center gap-3 mb-6">
-                    <img src="images/logo-header.png" alt="Neos Advisors Logo" class="h-16 w-auto"/>
-                </div>
-                <p class="text-on-surface-variant text-sm leading-relaxed">
-                    Leading Western Canada with integrity, technical expertise, and field-credible strategic advisory for linear infrastructure and Indigenous engagement.
-                </p>
-            </div>
-
-            <!-- Services -->
-            <div>
-                <span class="text-xs font-headline font-bold uppercase tracking-widest text-secondary mb-6 block">Services</span>
-                <ul class="space-y-3 text-sm text-primary-container/60">
-                    <li><a href="#services" class="hover:text-[#e0b04f] transition-colors">Advisement &amp; Capacity Planning</a></li>
-                    <li><a href="#services" class="hover:text-[#e0b04f] transition-colors">Indigenous Engagement &amp; Business Development</a></li>
-                    <li><a href="#services" class="hover:text-[#e0b04f] transition-colors">Website &amp; Branding Development</a></li>
-                </ul>
-            </div>
-
-            <!-- Company -->
-            <div>
-                <span class="text-xs font-headline font-bold uppercase tracking-widest text-secondary mb-6 block">Company</span>
-                <ul class="space-y-3 text-sm text-primary-container/60">
-                    <li><a href="#about" class="hover:text-[#e0b04f] transition-colors">About Us</a></li>
-                    <li><a href="#team" class="hover:text-[#e0b04f] transition-colors">Our Team</a></li>
-                    <li><a href="#results" class="hover:text-[#e0b04f] transition-colors">Case Studies</a></li>
-                    <li><a href="#careers" class="hover:text-[#e0b04f] transition-colors">Careers</a></li>
-                </ul>
-            </div>
-
-            <!-- Contact -->
-            <div>
-                <span class="text-xs font-headline font-bold uppercase tracking-widest text-secondary mb-6 block">Contact</span>
-                <div class="space-y-4">
-                    <a href="mailto:info@neosadvisors.ca" class="flex items-center gap-3 text-sm text-primary-container/60 hover:text-[#e0b04f] transition-colors">
-                        <span class="material-symbols-outlined text-secondary text-lg">mail</span>
-                        info@neosadvisors.ca
-                    </a>
-                    <div class="flex items-center gap-3 text-sm text-primary-container/60">
-                        <span class="material-symbols-outlined text-secondary text-lg">location_on</span>
-                        Western Canada
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="pt-8 border-t border-outline-variant/20 flex flex-col md:flex-row justify-between gap-4">
-            <span class="text-primary-container/60 text-xs font-body leading-relaxed">&copy; 2026 Neos Advisors Ltd. Edmonton, Alberta.</span>
-        </div>
-    </div>
+  </div>
+  <div class="w-full py-4 bg-surface-container-lowest text-center">
+    <p class="font-body text-[10px] tracking-widest text-[#E9E1DC]/20 uppercase">
+      &copy; 2025 SPICCO STUDIO. ALL RIGHTS RESERVED.
+    </p>
+  </div>
 </footer>
+
+<!-- ========== JAVASCRIPT ========== -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  // ===== NAVBAR HIDE/SHOW ON SCROLL =====
+  const nav = document.getElementById('mainNav');
+  let lastScrollY = window.scrollY;
+  let ticking = false;
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        const currentScrollY = window.scrollY;
+        if (currentScrollY > lastScrollY && currentScrollY > 100) {
+          nav.classList.add('nav-hidden');
+        } else {
+          nav.classList.remove('nav-hidden');
+        }
+        lastScrollY = currentScrollY;
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+
+  // ===== 3D ROLODEX — AUTO-SPINNING, PAUSE ON HOVER =====
+  const wheel = document.getElementById('rolodexWheel');
+  const scene = document.getElementById('rolodexScene');
+  if (!wheel || !scene || window.innerWidth <= 768) return;
+
+  const cards = wheel.querySelectorAll('.rolodex-card');
+  const dots = document.querySelectorAll('#rolodexDots .rolodex-dot');
+  const numCards = cards.length;
+  const angleStep = 360 / numCards; // 90deg between each card
+  const radius = 500; // Z-distance — larger = less perspective distortion between cards
+
+  // Place each card evenly around a Y-axis ring
+  // Each card is translated -50% to center itself, then rotated and pushed out along Z
+  cards.forEach((card, i) => {
+    const angle = i * angleStep;
+    // Use a combined transform: center the card, rotate it, push it out
+    card.style.transform = `translate(-50%, -50%) rotateY(${angle}deg) translateZ(${radius}px)`;
+  });
+
+  // Current wheel rotation angle (continuous, not snapped)
+  let currentAngle = 0;
+  let paused = false;
+  let autoSpeed = 0.3; // degrees per frame — brisk but smooth spin
+
+  // Determine which card index is "front-facing" at a given angle
+  function getFrontIndex(angle) {
+    // Normalize to 0-360
+    let norm = ((angle % 360) + 360) % 360;
+    // The front card is the one whose position angle is closest to the current rotation
+    // Card i is at angle i*angleStep. It faces front when wheelRotation ≡ i*angleStep (mod 360)
+    let best = 0;
+    let bestDist = 360;
+    for (let i = 0; i < numCards; i++) {
+      let cardAngle = i * angleStep;
+      let dist = Math.abs(((norm - cardAngle + 180) % 360) - 180);
+      if (dist < bestDist) {
+        bestDist = dist;
+        best = i;
+      }
+    }
+    return best;
+  }
+
+  function updateVisuals() {
+    const frontIdx = getFrontIndex(currentAngle);
+    cards.forEach((c, i) => {
+      if (i === frontIdx) {
+        c.style.filter = 'brightness(1) blur(0px)';
+        c.style.opacity = '1';
+      } else {
+        c.style.filter = 'brightness(0.35) blur(3px)';
+        c.style.opacity = '0.55';
+      }
+    });
+    dots.forEach((d, i) => {
+      d.classList.toggle('active', i === frontIdx);
+    });
+  }
+
+  function setWheelAngle(angle) {
+    gsap.set(wheel, { rotateY: -angle });
+    updateVisuals();
+  }
+
+  // Auto-spin loop
+  function tick() {
+    if (!paused) {
+      currentAngle += autoSpeed;
+      setWheelAngle(currentAngle);
+    }
+    requestAnimationFrame(tick);
+  }
+  setWheelAngle(0);
+  requestAnimationFrame(tick);
+
+  // Pause on hover over the entire scene area
+  scene.addEventListener('mouseenter', () => { paused = true; });
+  scene.addEventListener('mouseleave', () => { paused = false; });
+
+  // Clicking a dot snaps to that card
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      // Calculate the shortest rotation to reach card i
+      const targetAngle = i * angleStep;
+      let norm = ((currentAngle % 360) + 360) % 360;
+      let diff = targetAngle - norm;
+      // Take the shortest path
+      if (diff > 180) diff -= 360;
+      if (diff < -180) diff += 360;
+      currentAngle += diff;
+      gsap.to({}, {
+        duration: 0.6,
+        ease: 'power2.inOut',
+        onUpdate: function() {
+          setWheelAngle(currentAngle);
+        }
+      });
+      setWheelAngle(currentAngle);
+    });
+  });
+
+});
+</script>
 
 </body>
 </html>
